@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+          name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css"
+  />
+
+</head>
+<body>
+<div id="fullpage">
+  <section class="section">
+    <div class="section__btm">
+      <h2>Задание 1</h2>
+      <div class="layers">
+        <div class="layer-2 layer-box" onclick="bringToFront(this)">СЛОЙ 2 УРОВНЯ</div>
+        <div class="layer-2-small layer-box" onclick="bringToFront(this)"></div>
+        <div class="layer-3 layer-box" onclick="bringToFront(this)">СЛОЙ 3 УРОВНЯ</div>
+        <div class="layer-1-left layer-box" onclick="bringToFront(this)"></div>
+        <div class="layer-1-right layer-box" onclick="bringToFront(this)"></div>
+        <div class="layer-2-left layer-box" onclick="bringToFront(this)"></div>
+        <div class="layer-2-right layer-box" onclick="bringToFront(this)"></div>
+      </div>
+      <div class="controls">
+        <button onclick="resetLayers()">Сбросить порядок</button>
+      </div>
+    </div>
+  </section>
+  <script>
+    let maxZIndex = 10;
+
+    function bringToFront(element) {
+      maxZIndex++;
+      element.style.zIndex = maxZIndex;
+    }
+
+    function resetLayers() {
+      const layers = document.querySelectorAll('.layer-box');
+      maxZIndex = 10;
+
+      layers.forEach(layer => {
+        if (layer.classList.contains('layer-3')) {
+          layer.style.zIndex = 1;
+        }
+        if (layer.classList.contains('layer-2') || layer.classList.contains('layer-2-small') || layer.classList.contains('layer-2-left') || layer.classList.contains('layer-2-right')) {
+          layer.style.zIndex = 2;
+        }
+        if (layer.classList.contains('layer-1-left') || layer.classList.contains('layer-1-right')) {
+          layer.style.zIndex = 3;
+        }
+      });
+    }
+  </script>
+
+  <section class="section">
+    <div class="section__btm">
+      <h2>Задание 2</h2>
+      <div class="content-grid">
+        <div class="card">
+          <h3>Основы JavaScript</h3>
+          <div class="topics">
+            <span class="topic">Переменные</span>
+            <span class="topic">Функции</span>
+            <span class="topic">Циклы</span>
+            <span class="topic">Массивы</span>
+          </div>
+          <button onclick="showLessonInfo('basics')">Начать изучение</button>
+        </div>
+        <div class="card">
+          <h3>Алгоритмы</h3>
+          <div class="topics">
+            <span class="topic">Сортировка</span>
+            <span class="topic">Поиск</span>
+            <span class="topic">Рекурсия</span>
+            <span class="topic">Графы</span>
+          </div>
+          <button onclick="showLessonInfo('algorithms')">Начать изучение</button>
+        </div>
+        <div class="card">
+          <h3>Встроенные объекты</h3>
+          <div class="topics">
+            <span class="topic">Array</span>
+            <span class="topic">Object</span>
+            <span class="topic">Date</span>
+            <span class="topic">Math</span>
+          </div>
+          <button onclick="showLessonInfo('objects')">Начать изучение</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__btm">
+      <h2>Задание 3</h2>
+      <div class="resources-container">
+        <div class="resource-card">
+          <div class="resource-icon">📝</div>
+          <h3>Тестовые задания</h3>
+          <p>Практические упражнения для закрепления знаний</p>
+          <div class="difficulty">
+            <span class="easy">Легкие</span>
+            <span class="medium">Средние</span>
+            <span class="hard">Сложные</span>
+          </div>
+          <button onclick="openTests()">Открыть тесты</button>
+        </div>
+        <div class="resource-card">
+          <div class="resource-icon">⚡</div>
+          <h3>RunJS Online</h3>
+          <p>Онлайн среда для разработки и тестирования кода</p>
+          <div class="features">
+            <span>Быстрый запуск</span>
+            <span>Отладка</span>
+            <span>Совместная работа</span>
+          </div>
+          <a href="https://runjs.app/play" target="_blank"><button >Запустить IDE</button></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__btm">
+      <h2>Задание 4</h2>
+      <div class="freelance-container">
+        <div class="platform-card">
+          <div class="platform-logo">💼</div>
+          <h3>FreelanceJS</h3>
+          <p>Биржа для JavaScript разработчиков</p>
+          <div class="stats">
+            <span>1,247 активных заказов</span>
+            <span>₽500-50,000 за проект</span>
+          </div>
+          <button onclick="openFreelancePlatform()">Посмотреть заказы</button>
+        </div>
+        <div class="platform-card">
+          <div class="platform-logo">🚀</div>
+          <h3>AutomationHub</h3>
+          <p>Специализация на автоматизации процессов</p>
+          <div class="stats">
+            <span>892 проекта</span>
+            <span>₽1,000-100,000 за проект</span>
+          </div>
+          <button onclick="openAutomationPlatform()">Найти проекты</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="testModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeTestModal()">&times;</span>
+    <h3>JavaScript Тест</h3>
+    <div id="testContainer">
+      <div class="question" id="question"></div>
+      <div class="answers" id="answers"></div>
+      <button onclick="nextQuestion()" id="nextBtn">Ответить</button>
+    </div>
+    <div class="test-result" id="result" style="display: none;">
+      <h4>Результат теста</h4>
+      <p id="score"></p>
+      <button onclick="restartTest()">Пройти снова</button>
+    </div>
+  </div>
+</div>
+
+<div id="lessonModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeLessonModal()">&times;</span>
+    <div id="lessonContent"></div>
+  </div>
+</div>
+<script>
+
+
+  function showAll() {
+    const layers = document.querySelectorAll('.layer-box');
+    layers.forEach(layer => {
+      layer.classList.remove('layer-hidden');
+    });
+  }
+
+  function showLessonInfo(type) {
+    const lessons = {
+      basics: {
+        title: 'Основы JavaScript',
+        content: `
+      <h3>Учебная программа: Основы JavaScript</h3>
+      <div class="lesson-info">
+        <h4>Модуль 1: Переменные и типы данных</h4>
+        <ul>
+          <li>Объявление переменных (let, const, var)</li>
+          <li>Примитивные типы данных</li>
+          <li>Преобразование типов</li>
+        </ul>
+
+        <h4>Модуль 2: Функции</h4>
+        <ul>
+          <li>Объявление и вызов функций</li>
+          <li>Параметры и аргументы</li>
+          <li>Стрелочные функции</li>
+        </ul>
+
+        <h4>Модуль 3: Циклы и условия</h4>
+        <ul>
+          <li>Условные операторы (if, else, switch)</li>
+          <li>Циклы (for, while, do-while)</li>
+          <li>Операторы break и continue</li>
+        </ul>
+
+        <h4>Практические задания:</h4>
+        <p>20 заданий с автоматической проверкой</p>
+        <button onclick="startPractice('basics')" class="practice-btn">Начать практику</button>
+      </div>
+    `
+      },
+      algorithms: {
+        title: 'Алгоритмы и структуры данных',
+        content: `
+      <h3>Учебная программа: Алгоритмы</h3>
+      <div class="lesson-info">
+        <h4>Модуль 1: Алгоритмы сортировки</h4>
+        <ul>
+          <li>Пузырьковая сортировка</li>
+          <li>Быстрая сортировка</li>
+          <li>Сортировка слиянием</li>
+        </ul>
+
+        <h4>Модуль 2: Алгоритмы поиска</h4>
+        <ul>
+          <li>Линейный поиск</li>
+          <li>Бинарный поиск</li>
+          <li>Поиск в глубину и ширину</li>
+        </ul>
+
+        <h4>Модуль 3: Рекурсия</h4>
+        <ul>
+          <li>Принципы рекурсии</li>
+          <li>Числа Фибоначчи</li>
+          <li>Факториал</li>
+        </ul>
+
+        <h4>Практические задания:</h4>
+        <p>15 алгоритмических задач</p>
+        <button onclick="startPractice('algorithms')" class="practice-btn">Начать практику</button>
+      </div>
+    `
+      },
+      objects: {
+        title: 'Встроенные объекты JavaScript',
+        content: `
+      <h3>Учебная программа: Встроенные объекты</h3>
+      <div class="lesson-info">
+        <h4>Модуль 1: Объект Array</h4>
+        <ul>
+          <li>Методы массивов (push, pop, shift, unshift)</li>
+          <li>Итерационные методы (map, filter, reduce)</li>
+          <li>Поиск элементов (find, findIndex, indexOf)</li>
+        </ul>
+
+        <h4>Модуль 2: Объект Object</h4>
+        <ul>
+          <li>Создание и изменение объектов</li>
+          <li>Методы Object (keys, values, entries)</li>
+          <li>Деструктуризация объектов</li>
+        </ul>
+
+        <h4>Модуль 3: Date и Math</h4>
+        <ul>
+          <li>Работа с датами и временем</li>
+          <li>Математические операции</li>
+          <li>Генерация случайных чисел</li>
+        </ul>
+
+        <h4>Практические задания:</h4>
+        <p>25 заданий на работу с объектами</p>
+        <button onclick="startPractice('objects')" class="practice-btn">Начать практику</button>
+      </div>
+    `
+      }
+    };
+
+    document.getElementById('lessonContent').innerHTML = lessons[type].content;
+    document.getElementById('lessonModal').style.display = 'block';
+  }
+
+  function closeLessonModal() {
+    document.getElementById('lessonModal').style.display = 'none';
+  }
+
+  function startPractice(type) {
+    alert(`Запускаем практические задания по теме: ${type}`);
+    closeLessonModal();
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById('lessonModal');
+    if (event.target === modal) {
+      closeLessonModal();
+    }
+  }
+</script>
+
+<div id="ideContainer" class="ide-container" style="display: none;">
+  <div class="ide-header">
+    <h3>RunJS Online IDE</h3>
+    <button onclick="closeIDE()">Закрыть</button>
+  </div>
+  <div class="ide-body">
+    <div class="code-editor">
+      <textarea id="codeInput" placeholder="console.log('Hello World!');">console.log('Hello World!');</textarea>
+    </div>
+    <div class="output">
+      <h4>Результат выполнения:</h4>
+      <div id="output"></div>
+    </div>
+  </div>
+  <div class="ide-controls">
+    <button onclick="runCode()">Запустить код</button>
+    <button onclick="clearCode()">Очистить</button>
+    <button onclick="saveCode()">Сохранить</button>
+  </div>
+</div>
+<script>
+  const testQuestions = [
+    {
+      question: "Что выведет console.log(typeof null)?",
+      answers: ["null", "object", "undefined", "boolean"],
+      correct: 1
+    },
+    {
+      question: "Какой результат выражения 3 + '3'?",
+      answers: ["6", "33", "Error", "undefined"],
+      correct: 1
+    },
+    {
+      question: "Что означает 'this' в JavaScript?",
+      answers: ["Текущий объект", "Глобальный объект", "Зависит от контекста", "Undefined"],
+      correct: 2
+    },
+    {
+      question: "Какой метод добавляет элемент в конец массива?",
+      answers: ["push()", "pop()", "shift()", "unshift()"],
+      correct: 0
+    },
+    {
+      question: "Что вернет Boolean('')?",
+      answers: ["true", "false", "undefined", "Error"],
+      correct: 1
+    }
+  ];
+
+  let currentQuestion = 0;
+  let score = 0;
+  let selectedAnswer = null;
+
+  function openTests() {
+    document.getElementById('testModal').style.display = 'block';
+    currentQuestion = 0;
+    score = 0;
+    showQuestion();
+  }
+
+  function closeTestModal() {
+    document.getElementById('testModal').style.display = 'none';
+  }
+
+  function showQuestion() {
+    const question = testQuestions[currentQuestion];
+    document.getElementById('question').textContent = `${currentQuestion + 1}. ${question.question}`;
+
+    const answersContainer = document.getElementById('answers');
+    answersContainer.innerHTML = '';
+
+    question.answers.forEach((answer, index) => {
+      const div = document.createElement('div');
+      div.className = 'answer-option';
+      div.textContent = answer;
+      div.onclick = () => selectAnswer(index, div);
+      answersContainer.appendChild(div);
+    });
+
+    selectedAnswer = null;
+    document.getElementById('nextBtn').textContent = 'Ответить';
+  }
+
+  function selectAnswer(index, element) {
+    document.querySelectorAll('.answer-option').forEach(el => el.classList.remove('selected'));
+    element.classList.add('selected');
+    selectedAnswer = index;
+  }
+
+  function nextQuestion() {
+    if (selectedAnswer === null) {
+      alert('Выберите ответ!');
+      return;
+    }
+
+    const question = testQuestions[currentQuestion];
+    const options = document.querySelectorAll('.answer-option');
+
+    options[question.correct].classList.add('correct');
+    if (selectedAnswer !== question.correct) {
+      options[selectedAnswer].classList.add('incorrect');
+    } else {
+      score++;
+    }
+
+    setTimeout(() => {
+      currentQuestion++;
+      if (currentQuestion < testQuestions.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }, 1500);
+  }
+
+  function showResult() {
+    document.getElementById('testContainer').style.display = 'none';
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('score').textContent = `Вы ответили правильно на ${score} из ${testQuestions.length} вопросов!`;
+  }
+
+  function restartTest() {
+    document.getElementById('testContainer').style.display = 'block';
+    document.getElementById('result').style.display = 'none';
+    currentQuestion = 0;
+    score = 0;
+    showQuestion();
+  }
+
+
+</script>
+
+<div id="freelanceModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeFreelanceModal()">&times;</span>
+    <h3 id="platformTitle">Заказы</h3>
+    <div id="jobsList"></div>
+  </div>
+</div>
+<script>
+  const jobs = [
+    {
+      title: "Автоматизация учета товаров",
+      price: "25,000",
+      description: "Нужен скрипт для автоматического учета товаров на складе",
+      client: "ООО Торговый Дом"
+    },
+    {
+      title: "Парсер данных с сайтов",
+      price: "8,500",
+      description: "Создать инструмент для сбора цен конкурентов",
+      client: "Интернет-магазин"
+    },
+    {
+      title: "CRM система для малого бизнеса",
+      price: "75,000",
+      description: "Разработка CRM с модулями продаж и аналитики",
+      client: "Консалтинговая компания"
+    }
+  ];
+
+  function openFreelancePlatform() {
+    showJobs('FreelanceJS - Заказы', jobs);
+  }
+
+  function openAutomationPlatform() {
+    const autoJobs = jobs.filter((job, index) => index < 2);
+    showJobs('AutomationHub - Проекты', autoJobs);
+  }
+
+  function showJobs(title, jobList) {
+    document.getElementById('platformTitle').textContent = title;
+    const container = document.getElementById('jobsList');
+    container.innerHTML = '';
+
+    jobList.forEach(job => {
+      const div = document.createElement('div');
+      div.className = 'job-card';
+      div.innerHTML = `
+      <h4>${job.title}</h4>
+      <div class="job-price">₽${job.price}</div>
+      <p>${job.description}</p>
+      <div class="job-client">${job.client}</div>
+      <button onclick="applyJob()">Откликнуться</button>
+    `;
+      container.appendChild(div);
+    });
+
+    document.getElementById('freelanceModal').style.display = 'block';
+  }
+
+  function closeFreelanceModal() {
+    document.getElementById('freelanceModal').style.display = 'none';
+  }
+
+  function applyJob() {
+    alert('Отклик отправлен!');
+    closeFreelanceModal();
+  }
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+<script>
+  new fullpage("#fullpage", {
+    autoScrolling: true,
+    scrollHorizontally: false,
+    navigation: true,
+    navigationPosition: "right",
+    css3: true,
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        line-height: 2;
+    }
+    .animal-section {
+        background: linear-gradient(180deg, cornflowerblue, peachpuff);
+
+    }
+    .animal-section__btm {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    button {
+        border: none;
+        outline: none;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    button:hover {
+        cursor: pointer;
+        background: #afd5d5;
+    }
+
+    .warning-section {
+        margin-top: 300px;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+    .warning-section__btm {
+        border: 2px solid #333;
+        padding: 100px;
+        border-radius: 10px;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        border: 2px solid #333;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+    }
+    .modal-content {
+        text-align: center;
+    }
+    .show {
+        display: block;
+    }
+  </style>
+</head>
+<body>
+  Это обычный HTML - документ.
+  <br>
+  <script>
+    document.write("Это - JavaScript!")
+  </script>
+  <br>
+  Вновь документ HTML.
+  <br>
+  <button onclick={showMessage()}>
+    Click me
+  </button>
+  <script>
+    const showMessage = () => {
+      alert('Привет')
+    }
+  </script>
+
+  <section class="animal-section">
+    <h1>Какое это животное?</h1>
+    <div>
+      <img src="https://avatars.mds.yandex.net/i?id=e54c820ebf3c6aea300f099004df0daa618ea516-5008775-images-thumbs&n=13" alt="Капибара">
+    </div>
+    <div class="animal-section__btm">
+      <button onclick={checkAnswer(false)}>Это гипард</button>
+      <button onclick={checkAnswer(true)}>Это капибара</button>
+      <button onclick={checkAnswer(false)}>Это танк</button>
+    </div>
+  </section>
+
+  <script>
+    const checkAnswer = (answer) => {
+      answer ? alert("Верно!") : alert("Попробую еще раз!")
+    }
+  </script>
+  <section class="warning-section">
+    <div class="warning-section__btm">
+      <button onclick="showWarning('a')">Click a</button>
+      <button onclick="showWarning('b')">Click b</button>
+    </div>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <p id="modal-text"></p>
+        <button id="ok-button" onclick="closeModal()">OK</button>
+      </div>
+    </div>
+    <script>
+      let modalTimeout;
+
+      const closeModal = () => {
+        const modal = document.getElementById('modal');
+        modal.classList.remove('show');
+        clearTimeout(modalTimeout);
+      }
+
+      const showWarning = (message) => {
+        const modal = document.getElementById('modal');
+        const modalText = document.getElementById('modal-text');
+
+        const textMessage = () => {
+          return message === 'a' ? 'Работа с приложением' : 'Не работает';
+        }
+        modalText.textContent = `${textMessage()}`;
+        modal.classList.add('show');
+
+        modalTimeout = setTimeout(() => {
+          modal.classList.remove('show');
+        }, 8000);
+      }
+    </script>
+  </section>
+
+</body>
+</html>

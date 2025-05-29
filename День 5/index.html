@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css">
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          user-select: none;
+      }
+
+      h2 {
+          font-size: 3rem;
+      }
+
+      section:nth-of-type(1) {
+          background-color: #7fb5b5;
+      }
+
+      section:nth-of-type(2) {
+          background-color: #efa94a;
+      }
+
+      section:nth-of-type(3) {
+          background-color: #ff8c69;
+      }
+
+      section:nth-of-type(4) {
+          background-color: #ffb28b;
+      }
+
+      section:nth-of-type(5) {
+          background-color: #e6e6fa;
+      }
+
+      section:nth-of-type(6) {
+          background-color: #77DD77;
+      }
+
+      section:nth-of-type(7) {
+          background-color: #E4717A;
+      }
+
+      section:nth-of-type(8) {
+          background-color: #B39F7A;
+      }
+
+      section:nth-of-type(9) {
+          background-color: #3EB489;
+      }
+
+      section:nth-of-type(10) {
+          background-color: #CCCCFF;
+      }
+
+      button {
+          border: none;
+          outline: none;
+          padding: 20px 40px;
+          margin-bottom: 10px;
+          font-size: 2rem;
+          border-radius: 10px;
+          background-color: #cccaca;
+      }
+
+      button:hover {
+          cursor: pointer;
+          background: #afd5d5;
+      }
+
+      .section__btm {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+          justify-content: center;
+          background-color: #fff;
+          border-radius: 10px;
+          padding: 20px;
+          max-width: 1200px;
+          margin-inline: auto;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+  </style>
+</head>
+<body>
+  <div id="fullpage">
+    <section class="section">
+      <div class="section__btm">
+        <h2>Пример 1</h2>
+        <div id="clock" style="font-size: 24px; margin: 10px 0;"></div>
+      </div>
+    </section>
+
+    <script type="text/javascript">
+      function showTime() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+
+        document.getElementById('clock').innerHTML = hours + ":" + minutes + ":" + seconds;
+        setTimeout(showTime, 1000);
+      }
+
+      window.onload = showTime;
+
+    </script>
+    <script>
+      const month_names = new Array(12)
+      month_names[0] = "Январь"
+      month_names[1] = "Февраль"
+      month_names[2] = "Март"
+      month_names[3] = "Апрель"
+      month_names[4] = "Май"
+      month_names[5] = "Июнь"
+      month_names[6] = "Июль"
+      month_names[7] = "Август"
+      month_names[8] = "Сентябрь"
+      month_names[9] = "Октябрь"
+      month_names[10] = "Ноябрь"
+      month_names[11] = "Декабрь"
+
+      function month_name(month_value) {
+        switch (month_value) {
+          case 0 :
+            return "Январь"
+          case 1 :
+            return "Февраль"
+          case 2 :
+            return "Март"
+          case 3 :
+            return "Апрель"
+          case 4 :
+            return "Май"
+          case 5 :
+            return "Июнь"
+          case 6 :
+            return "Июль"
+          case 7 :
+            return "Август"
+          case 8 :
+            return "Сентябрь"
+          case 9 :
+            return "Октябрь"
+          case 10 :
+            return "Ноябрь"
+          case 11 :
+            return "Декабрь"
+        }
+      }
+
+      function getOperation() {
+        const resultContainer = document.createElement('div');
+        resultContainer.className = 'result-info';
+        resultContainer.style.cssText = 'background-color: #f5f5f5; padding: 20px; margin-top: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);';
+
+        const date_now = new Date(2001, 7, 23);
+        const month_now = date_now.getMonth();
+
+        const info1 = document.createElement('p');
+        info1.innerHTML = `<strong>Способ 1 (массив):</strong> getMonth() возвращает <span style="color: #E4717A;">${month_now}</span>; месяц <span style="color: #3EB489; font-weight: bold;">${month_names[month_now]}</span>`;
+        info1.style.fontSize = '1.2rem';
+        info1.style.marginBottom = '10px';
+
+        const info2 = document.createElement('p');
+        info2.innerHTML = `<strong>Способ 2 (функция):</strong> getMonth() возвращает <span style="color: #E4717A;">${month_now}</span>; месяц <span style="color: #3EB489; font-weight: bold;">${month_name(month_now)}</span>`;
+        info2.style.fontSize = '1.2rem';
+
+        const dateInfo = document.createElement('p');
+        dateInfo.innerHTML = `<strong>Полная дата:</strong> <span style="color: #B39F7A;">${date_now.toLocaleDateString('ru-RU', {day: 'numeric', month: 'long', year: 'numeric'})}</span>`;
+        dateInfo.style.fontSize = '1.2rem';
+        dateInfo.style.marginTop = '15px';
+
+        resultContainer.append(info1, info2, dateInfo);
+
+        const oldResult = document.querySelector('.result-info');
+        if (oldResult) oldResult.remove();
+
+        const button = event.currentTarget;
+
+        const section = button.closest('.section__btm');
+        section.appendChild(resultContainer);
+
+      }
+
+    </script>
+    <section class="section " >
+      <div class="section__btm">
+        <h2>Задание 1</h2>
+        <button onclick="getOperation()">Click</button>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section__btm">
+        <h2>Задание 2</h2>
+        <button onclick="printWeekDay()">Click</button>
+      </div>
+    </section>
+    <script>
+      function printWeekDay() {
+        const days = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
+        const today = new Date();
+        const dayIndex = today.getDay();
+        const dayName = days[dayIndex];
+
+        const button = event.currentTarget;
+
+        const section = button.closest('.section__btm');
+
+        const p = document.createElement('p');
+        p.textContent = "Сегодня: " + dayName;
+
+        p.className = 'day-result';
+        section.appendChild(p);
+      }
+    </script>
+    <script>
+      function printToday() {
+        const today = new Date();
+        const day = today.getDate();
+        const month = today.getMonth() + 1;
+        const year = today.getFullYear();
+
+        const button = event.currentTarget;
+        const section = button.closest('.section__btm');
+
+        const oldResult = section.querySelector('.day-result');
+        if (oldResult) oldResult.remove();
+
+        const div = document.createElement('div');
+        div.className = 'day-result';
+        div.innerHTML = `
+      <p>Дата (формат 1): ${day}.${month}.${year}</p>
+      <p>Дата (формат 2): ${year}/${month}/${day}</p>
+    `;
+
+        section.appendChild(div);
+      }
+    </script>
+    <section class="section">
+      <div class="section__btm">
+        <h2>Задание 3</h2>
+        <button onclick="printToday()">Click</button>
+      </div>
+    </section>
+    <script>
+      function formatDate(date) {
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear().toString().slice(2);
+
+        const section = event.currentTarget.closest('.section__btm');
+        const oldResult = section.querySelector('.result');
+        if (oldResult) oldResult.remove();
+
+        const div = document.createElement('div');
+        div.className = 'result';
+
+        const formattedDate = `${day < 10 ? '0' + day : day}.${month < 10 ? '0' + month : month}.${year}`;
+        const dateInput = document.createElement('input');
+        dateInput.type = 'date';
+        dateInput.value = `${date.getFullYear()}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+
+        div.innerHTML = `<p>${formattedDate}</p>`;
+        div.appendChild(dateInput);
+        section.appendChild(div);
+      }
+    </script>
+    <section class="section">
+      <div class="section__btm">
+        <h2>Задание 4</h2>
+        <button onclick="formatDate(new Date())">Click</button>
+      </div>
+    </section>
+
+    <script>
+      function showUserInfo() {
+        const section = event.currentTarget.closest('.section__btm');
+        const oldResult = section.querySelector('.result');
+        if (oldResult) oldResult.remove();
+
+        const div = document.createElement('div');
+        div.className = 'result';
+        div.innerHTML = `
+        <input placeholder="Имя Фамилия" id="fullName"><br>
+        <input type="date" id="birthDate"><br>
+        <button onclick="processUserInfo()">OK</button>
+        <p id="userResult"></p>
+      `;
+        section.appendChild(div);
+      }
+
+      function processUserInfo() {
+        const fullName = document.getElementById('fullName').value.trim();
+        const birthDate = new Date(document.getElementById('birthDate').value);
+
+        if (!fullName || fullName.split(' ').length !== 2 || isNaN(birthDate)) {
+          document.getElementById('userResult').textContent = 'Ошибка ввода';
+          return;
+        }
+
+        const [firstName, lastName] = fullName.split(' ');
+        document.getElementById('userResult').innerHTML =
+          `Имя: ${firstName}<br>Фамилия: ${lastName}<br>Дата: ${birthDate.toLocaleDateString('ru-RU')}`;
+      }
+    </script>
+    <section class="section">
+      <div class="section__btm">
+        <h2>Задание 5</h2>
+        <button onclick="showUserInfo()">Click</button>
+      </div>
+    </section>
+
+    <script>
+      function getDayOfWeek() {
+        const today = new Date();
+        const dayNum = today.getDay();
+
+        const section = event.currentTarget.closest('.section__btm');
+        const oldResult = section.querySelector('.result');
+        if (oldResult) oldResult.remove();
+
+        const div = document.createElement('div');
+        div.className = 'result';
+
+        let dayName;
+        switch(dayNum) {
+          case 0: dayName = 'воскресенье'; break;
+          case 1: dayName = 'понедельник'; break;
+          case 2: dayName = 'вторник'; break;
+          case 3: dayName = 'среда'; break;
+          case 4: dayName = 'четверг'; break;
+          case 5: dayName = 'пятница'; break;
+          case 6: dayName = 'суббота'; break;
+        }
+
+        div.textContent = `Сегодня ${dayName}`;
+        section.appendChild(div);
+      }
+    </script>
+    <section class="section">
+      <div class="section__btm">
+        <h2>Задание 6</h2>
+        <button onclick="getDayOfWeek()">Click</button>
+      </div>
+    </section>
+
+    <script>
+      function getFutureDate() {
+        const section = event.currentTarget.closest('.section__btm');
+        const oldResult = section.querySelector('.result');
+        if (oldResult) oldResult.remove();
+
+        const div = document.createElement('div');
+        div.className = 'result';
+        div.innerHTML = `
+        <input type="number" min="1" max="1000" placeholder="Дней (1-1000)" id="daysInput">
+        <button onclick="calculateFutureDate()">OK</button>
+        <div id="dateResult"></div>
+      `;
+        section.appendChild(div);
+      }
+
+      function calculateFutureDate() {
+        const days = parseInt(document.getElementById('daysInput').value);
+        const result = document.getElementById('dateResult');
+
+        if (isNaN(days) || days < 1 || days > 1000) {
+          result.innerHTML = '<p style="color:red">Ошибка ввода</p>';
+          return;
+        }
+
+        const today = new Date();
+        const future = new Date(today);
+        future.setDate(today.getDate() + days);
+
+        const weekDays = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+        const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+
+        result.innerHTML = `
+        <p>Через ${days} дней будет вот такая дата:</p>
+        <p>День недели: ${weekDays[future.getDay()]}</p>
+        <p>Число: ${future.getDate()}</p>
+        <p>Месяц: ${months[future.getMonth()]}</p>
+        <p>Год: ${future.getFullYear()}</p>
+      `;
+      }
+    </script>
+    <section class="section">
+      <div class="section__btm">
+        <h2>Задание 7</h2>
+        <button onclick="getFutureDate()">Click</button>
+      </div>
+    </section>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+<script>
+  new fullpage("#fullpage", {
+    autoScrolling: true,
+    scrollHorizontally: false,
+    navigation: true,
+    navigationPosition: "right",
+    css3: true,
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Фреймы</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+      }
+      .frame-title {
+          text-align: center;
+          padding: 10px;
+          background-color: #f0f0f0;
+          border-bottom: 1px solid #ddd;
+      }
+      .content {
+          padding: 20px;
+          height: 100%;
+      }
+      a {
+          display: block;
+          margin: 10px 0;
+          padding: 8px 12px;
+          background-color: #e0e0e0;
+          border-radius: 5px;
+          text-decoration: none;
+          color: #333;
+      }
+      a:hover {
+          background-color: #d0d0d0;
+      }
+  </style>
+</head>
+<frameset rows="100px, *">
+  <frame src="header.html" name="header" scrolling="no">
+  <frameset cols="250px, *">
+    <frame src="navigation.html" name="navigation">
+    <frameset rows="*, *">
+      <frameset cols="50%, 50%">
+        <frame src="frame1.html" name="frame1">
+        <frame src="frame2.html" name="frame2">
+      </frameset>
+      <frameset cols="*, *, *">
+        <frame src="frame3.html" name="frame3">
+        <frame src="frame4.html" name="frame4">
+        <frame src="frame5.html" name="frame5">
+      </frameset>
+    </frameset>
+  </frameset>
+  <noframes>
+    <body>
+      <p>Ваш браузер не поддерживает фреймы. Пожалуйста, обновите браузер.</p>
+    </body>
+  </noframes>
+</frameset>
+</html>

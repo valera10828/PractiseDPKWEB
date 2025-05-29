@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Фрейм 1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f0f0;
+      text-align: center;
+    }
+    input[type="button"] {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+    input[type="button"]:hover {
+      background-color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Первый фрейм</h2>
+  <form>
+    <input type="button" value="Изменить имя кнопки" onClick="parent.frames[1].document.forms[0].But1.value='Кнопка2';">
+    <input type="button" value="Восстановить имя кнопки" onClick="parent.frames[1].document.forms[0].But1.value='Кнопка1';">
+  </form>
+</body>
+</html>

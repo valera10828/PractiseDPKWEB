@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+      }
+
+      .gallery {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+      }
+
+      img {
+          width: 400px;
+          height: 250px;
+      }
+
+      section {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          max-width: 1200px;
+          margin-inline: auto;
+      }
+
+      .links {
+          font-size: 1.5rem;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          justify-content: center;
+      }
+
+      .links > a {
+          text-decoration: none;
+          color: #000;
+
+          &:hover {
+              color: #54c6dc;
+              text-decoration: underline;
+          }
+      }
+
+      .gallery {
+          display: flex;
+          justify-content: center;
+      }
+
+      button {
+          font-size: 1.5rem;
+          border: none;
+          outline: none;
+          padding: 10px 20px;
+          border-radius: 10px;
+          background-color: #cccaca;
+
+          &:hover {
+              cursor: pointer;
+              background: #afd5d5;
+          }
+      }
+  </style>
+</head>
+<body>
+<section>
+  <a href="index.html">Назад</a>
+  <div class="gallery">
+    <img src="https://th.bing.com/th/id/R.6c738c49de731553ee7127d919a971e4?rik=GWCqOd79IJs7JQ&pid=ImgRaw&r=0"
+         alt="Изображение 1">
+    <img src="https://funik.ru/wp-content/uploads/2018/10/83d8a824da15c33acedf.jpg" alt="Изображение 2">
+    <img src="https://wallup.net/wp-content/uploads/2019/09/635405-nature-landscapes-earth-lakes-trees-forest-sky-clouds-beauty-spring-sunny-2.jpg"
+         alt="Изображение 3">
+    <img src="https://w-dog.ru/wallpapers/11/0/483923080813480.jpg" alt="Изображение 4">
+  </div>
+
+  <div class="links">
+    <a href="https://www.google.com">Google</a>
+    <a href="https://www.yandex.ru">Яндекс</a>
+    <a href="https://www.bing.com">Bing</a>
+  </div>
+
+  <button onclick="countElements()">Посчитать элементы</button>
+  <div id="count-info"></div>
+</section>
+<script>
+  const countElements = () => {
+    const images = document.getElementsByTagName('img');
+    const links = document.getElementsByTagName('a');
+
+    document.getElementById('count-info').innerHTML =
+      'На странице ' + images.length + ' изображений и ' +
+      links.length + ' ссылок';
+  }
+</script>
+</body>
+</html>

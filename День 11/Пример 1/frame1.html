@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Фрейм 1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #ffb6c1;
+    }
+    .frame-title {
+      text-align: center;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    a {
+      display: inline-block;
+      margin: 10px 0;
+      padding: 8px 12px;
+      background-color: #e0e0e0;
+      border-radius: 5px;
+      text-decoration: none;
+      color: #333;
+    }
+    a:hover {
+      background-color: #d0d0d0;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame-title">Фрейм 1</div>
+  
+  <div class="content">
+    <h2>Содержимое фрейма 1</h2>
+    <p>Это первый фрейм из нашей сетки.</p>
+    
+    <a href="first.html" target="_top" onClick="if (parent.length != 0){ this.href='frame2.html'; this.target='_self'}">
+      Ссылка с динамическим переопределением
+    </a>
+    
+    <p>Эта ссылка проверяет, используются ли фреймы. Если используются, то в текущем фрейме загружается файл frame2.html. 
+       Если страница открыта без фреймов, то в окне браузера откроется файл first.html.</p>
+  </div>
+</body>
+</html>

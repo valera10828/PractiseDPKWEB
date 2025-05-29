@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Пример обработчиков событий</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: Arial, sans-serif;
+          padding: 20px;
+          background-color: #f5f5f5;
+          color: #333;
+      }
+
+      body {
+          font-family: Arial, sans-serif;
+          padding: 20px;
+          background-color: #f5f5f5;
+          color: #333;
+          position: relative;
+          overflow-x: hidden;
+      }
+
+      body::before {
+          content: "";
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          background: radial-gradient(circle at 5% 15%, rgba(173, 216, 230, 0.4) 5%, transparent 20%),
+          radial-gradient(circle at 85% 23%, rgba(221, 160, 221, 0.3) 10%, transparent 25%),
+          radial-gradient(circle at 10% 75%, rgba(144, 238, 144, 0.3) 8%, transparent 20%),
+          radial-gradient(circle at 70% 85%, rgba(255, 182, 193, 0.4) 10%, transparent 25%);
+      }
+
+      body::after {
+          content: "";
+          position: fixed;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          z-index: -2;
+          background: repeating-radial-gradient(
+                  circle at 20% 20%,
+                  transparent,
+                  transparent 40px,
+                  rgba(100, 149, 237, 0.05) 40px,
+                  rgba(100, 149, 237, 0.05) 42px
+          ),
+          repeating-radial-gradient(
+                  circle at 80% 80%,
+                  transparent,
+                  transparent 60px,
+                  rgba(221, 160, 221, 0.05) 60px,
+                  rgba(221, 160, 221, 0.05) 62px
+          );
+      }
+
+      .container {
+          max-width: 1000px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: rgba(255, 255, 255, 0.9);
+          border-radius: 10px;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          border: 1px solid #e0e0e0;
+          position: relative;
+          overflow: hidden;
+      }
+
+      /* Стилизация под холст/картину */
+      .container::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: linear-gradient(rgba(245, 245, 245, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(245, 245, 245, 0.1) 1px, transparent 1px);
+          background-size: 20px 20px;
+          z-index: -1;
+      }
+
+      h1 {
+          text-align: center;
+          margin-bottom: 30px;
+          color: #444;
+          font-family: 'Playfair Display', serif;
+          font-weight: 700;
+          letter-spacing: 1px;
+          position: relative;
+          padding-bottom: 10px;
+      }
+
+      h1::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 80px;
+          height: 3px;
+          background: linear-gradient(to right, #C7A27C, #D4AF37, #C7A27C);
+      }
+
+      .links {
+          display: flex;
+          justify-content: center;
+          gap: 15px;
+          margin-bottom: 30px;
+      }
+
+      a, button {
+          display: inline-block;
+          padding: 12px 25px;
+          background: linear-gradient(to right, #D4AF37, #C7A27C);
+          color: #fff;
+          text-decoration: none;
+          border-radius: 8px;
+          text-align: center;
+          transition: all 0.3s ease;
+          font-weight: 500;
+          border: none;
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-size: 14px;
+          cursor: pointer;
+          position: relative;
+          overflow: hidden;
+      }
+
+      a::before, button::before {
+          content: '';
+          position: absolute;
+          top: -10px;
+          left: -10px;
+          width: 0;
+          height: 0;
+          background: rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          transform: scale(0);
+          transition: transform 0.6s;
+      }
+
+      a:hover, button:hover {
+          background: linear-gradient(to right, #C7A27C, #D4AF37);
+          transform: translateY(-2px);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      a:hover::before, button:hover::before {
+          transform: scale(10);
+          opacity: 0;
+      }
+
+      .gallery {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 20px;
+          margin-top: 30px;
+      }
+
+      .gallery-item {
+          border-radius: 8px;
+          overflow: hidden;
+          height: 220px;
+          position: relative;
+          border: 8px solid white;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1),
+          0 0 0 1px rgba(0, 0, 0, 0.05);
+          transition: all 0.3s ease;
+      }
+
+      .gallery-item::before {
+          content: '';
+          position: absolute;
+          top: -8px;
+          left: -8px;
+          right: -8px;
+          bottom: -8px;
+          background: linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(255, 255, 255, 0.03) 100%);
+          border-radius: 8px;
+          z-index: -1;
+      }
+
+      .gallery-item img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.5s;
+      }
+
+      .gallery-item:hover {
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15),
+          0 0 0 1px rgba(0, 0, 0, 0.05);
+      }
+
+      .gallery-item:hover img {
+          transform: scale(1.08);
+      }
+
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Лучшие работы студентов</h1>
+
+  <div class="links">
+    <a href="#" id="link1">Ссылка 1</a>
+    <a href="#" id="link2">Ссылка 2</a>
+    <a href="#" id="link3">Ссылка 3</a>
+    <a href="index.html">Назад</a>
+  </div>
+
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="https://avatars.mds.yandex.net/i?id=5e6c9ad73648def32121a67f3e41bd0c_l-12460761-images-thumbs&n=13"
+           alt="Изображение 1">
+    </div>
+    <div class="gallery-item">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/И._А._Вельц._Летний_пейзаж_с_прибрежными_скалами.jpg/1200px-И._А._Вельц._Летний_пейзаж_с_прибрежными_скалами.jpg"
+           alt="Изображение 2">
+    </div>
+    <div class="gallery-item">
+      <img src="https://avatars.mds.yandex.net/i?id=a5df59c6f319b4c0c2b150f72352ee4f_l-5381778-images-thumbs&n=13"
+           alt="Изображение 3">
+    </div>
+    <div class="gallery-item">
+      <img src="https://cdn.culture.ru/images/943d15f5-11ce-5bcb-bc2a-45560ca9d803" alt="Изображение 4">
+    </div>
+    <div class="gallery-item">
+      <img src="https://cdn.culture.ru/images/fa8d4d3c-345c-5955-b691-67bd63b534d6" alt="Изображение 5">
+    </div>
+    <div class="gallery-item">
+      <img src="https://lanshaft.com/wp-content/uploads/2024/04/kartiny-AVstore-1.jpg" alt="Изображение 6">
+    </div>
+  </div>
+</div>
+
+<script>
+  const link1 = document.getElementById('link1');
+  const link2 = document.getElementById('link2');
+  const link3 = document.getElementById('link3');
+
+  link1.addEventListener('click', function (event) {
+    event.preventDefault();
+    alert('Вы нажали на ссылку 1!');
+  });
+
+  link2.addEventListener('click', function (event) {
+    event.preventDefault();
+    alert('Вы нажали на ссылку 2!');
+  });
+
+  link3.addEventListener('click', function (event) {
+    event.preventDefault();
+    alert('Вы нажали на ссылку 3!');
+  });
+
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  galleryItems.forEach(function (item, index) {
+    item.addEventListener('click', function () {
+      alert(`Вы выбрали работу ${index + 1}`);
+    });
+  });
+</script>
+</body>
+</html>

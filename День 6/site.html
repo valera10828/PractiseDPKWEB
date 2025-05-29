@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<h2>Список студентов группы</h2>
+<p id="demo"></p>
+<button onclick="startList()">Начать вывод списка</button>
+<button onclick="stopList()">Остановить</button>
+
+<script>
+  const students = [
+    "Иванов Иван Иванович",
+    "Петров Петр Петрович",
+    "Сидорова Анна Алексеевна",
+    "Козлов Дмитрий Сергеевич",
+    "Морозова Екатерина Андреевна",
+    "Николаев Александр Владимирович",
+    "Смирнова Ольга Павловна",
+    "Кузнецов Михаил Юрьевич",
+    "Федорова Елена Игоревна",
+    "Волков Максим Даниилович"
+  ];
+
+  const element = document.getElementById("demo");
+  let index = 0;
+  let intervalId;
+
+  function startList() {
+    if (!intervalId) {
+      element.innerHTML = "";
+      index = 0;
+      intervalId = setInterval(function() {
+        if (index < students.length) {
+          element.innerHTML += students[index] + "<br>";
+          index++;
+        } else {
+          clearInterval(intervalId);
+          intervalId = null;
+        }
+      }, 500);
+    }
+  }
+
+  function stopList() {
+    if (intervalId) {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css">
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          user-select: none;
+      }
+
+      h2 {
+          font-size: 3rem;
+      }
+
+      section:nth-of-type(1) {
+          background-color: #7fb5b5;
+      }
+
+      section:nth-of-type(2) {
+          background-color: #efa94a;
+      }
+
+      section:nth-of-type(3) {
+          background-color: #ff8c69;
+      }
+
+      section:nth-of-type(4) {
+          background-color: #ffb28b;
+      }
+
+      section:nth-of-type(5) {
+          background-color: #e6e6fa;
+      }
+
+      section:nth-of-type(6) {
+          background-color: #77DD77;
+      }
+
+      section:nth-of-type(7) {
+          background-color: #E4717A;
+      }
+
+      section:nth-of-type(8) {
+          background-color: #B39F7A;
+      }
+
+      section:nth-of-type(9) {
+          background-color: #3EB489;
+      }
+
+      section:nth-of-type(10) {
+          background-color: #CCCCFF;
+      }
+
+      button {
+          border: none;
+          outline: none;
+          padding: 20px 40px;
+          margin-bottom: 10px;
+          font-size: 2rem;
+          border-radius: 10px;
+          background-color: #cccaca;
+      }
+
+      button:hover {
+          cursor: pointer;
+          background: #afd5d5;
+      }
+
+      .section__btm {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+          justify-content: center;
+          background-color: #fff;
+          border-radius: 10px;
+          padding: 20px;
+          max-width: 1200px;
+          margin-inline: auto;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+  </style>
+</head>
+<body>
+<div id="fullpage">
+  <script>
+    function okno() {
+      if (confirm("Закрыть окно?")) {
+        alert("До свидания!");
+
+      } else {
+        alert("Тогда оставайтесь");
+      }
+    }
+
+    function askName() {
+      const name = prompt("Введите ваше имя", "");
+      if (name) {
+        const resultContainer = document.createElement('div');
+        resultContainer.innerHTML = `<p>Привет, <strong>${name}</strong>! Рады вас видеть.</p>`;
+
+        const sectionBtm = document.querySelector('#example2 .section__btm');
+        const oldResult = sectionBtm.querySelector('.result-info');
+        if (oldResult) oldResult.remove();
+
+        resultContainer.className = 'result-info';
+        sectionBtm.appendChild(resultContainer);
+      }
+    }
+
+    function openNewWindow() {
+      window.open('https://www.example.com', 'newWindow',
+        'width=600,height=400,toolbar=yes,location=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes');
+    }
+  </script>
+
+  <section class="section">
+    <div class="section__btm">
+      <h2>Пример 1: Использование confirm() и условий</h2>
+      <button onclick="okno()">Проверить закрытие окна</button>
+    </div>
+  </section>
+
+  <section id="example2" class="section">
+    <div class="section__btm">
+      <h2>Пример 2: Использование prompt()</h2>
+      <button onclick="askName()">Ввести имя</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__btm">
+      <h2>Пример 3: Открытие нового окна</h2>
+      <button onclick="openNewWindow()">Открыть новое окно</button>
+    </div>
+  </section>
+
+  <script>
+    let timerId;
+
+    function startTimer() {
+
+      clearTimeout(timerId);
+      timerId = setTimeout(function() {
+        alert('Время истекло!');
+      }, 3000);
+    }
+  </script>
+
+  <section class="section">
+    <div class="section__btm">
+      <h2>Задание 1</h2>
+      <button onclick="startTimer()">Timer</button>
+    </div>
+  </section>
+  <script>
+    window.onload = function() {
+      alert("Добро пожаловать на страницу!");
+    };
+
+    window.onbeforeunload = function() {
+      return "Вы действительно хотите покинуть страницу?";
+    };
+  </script>
+
+  <section class="section">
+    <div class="section__btm">
+      <h2>Задание 2</h2>
+      <p>Страница использует события onload и beforeunload.</p>
+      <p>При загрузке страницы показывается приветствие.</p>
+      <p>При попытке закрыть страницу появляется предупреждение.</p>
+      <a href="https://example.com">Проверить (перейти на другую страницу)</a>
+    </div>
+  </section>
+  <script>
+    function writeToDocument() {
+      document.open();
+      document.write("<h3>Новое содержимое страницы</h3>");
+      document.write("<p>Этот текст был добавлен с помощью метода document.write</p>");
+      document.write("<p>Текущая дата и время: " + new Date().toLocaleString() + "</p>");
+      document.write("<button onclick='location.reload()'>Вернуть исходную страницу</button>");
+      document.close();
+    }
+  </script>
+
+  <section class="section">
+    <div class="section__btm">
+      <h2>Задание 3</h2>
+      <p>Нажмите на кнопку, чтобы заменить содержимое страницы с помощью document.write</p>
+      <button onclick="writeToDocument()">Заменить содержимое</button>
+    </div>
+  </section>
+  <script>
+    function showAlert() {
+      window.alert("Это сообщение показано с помощью метода window.alert()\nВы находитесь в текущей вкладке браузера!");
+    }
+  </script>
+  <section class="section">
+    <div class="section__btm">
+      <h2>Задание 4</h2>
+      <p>Нажмите на кнопку для вызова метода alert в текущем окне браузера</p>
+      <button onclick="showAlert()">Показать сообщение</button>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section__btm">
+      <h2>Задание 5</h2>
+      <a href="site.html"><button>Перейти на страницу</button></a>
+    </div>
+  </section>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+<script>
+  new fullpage("#fullpage", {
+    autoScrolling: true,
+    scrollHorizontally: false,
+    navigation: true,
+    navigationPosition: "right",
+    css3: true,
+  });
+</script>
+</body>
+</html>
