@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Стили документа</title>
+  <style>
+      body {
+          font-family: "Arial", sans-serif;
+          margin: 0;
+          min-height: 100vh;
+          display: grid;
+          place-items: center;
+          background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+          color: #333;
+      }
+      .container {
+          background: rgba(255, 255, 255, 0.95);
+          padding: 2rem;
+          border-radius: 20px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(10px);
+          width: 90%;
+          max-width: 800px;
+      }
+      button {
+          background: #2575fc;
+          color: white;
+          border: none;
+          padding: 1rem 2rem;
+          border-radius: 10px;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: transform 0.2s, box-shadow 0.2s;
+      }
+      button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(37, 117, 252, 0.3);
+      }
+      #output {
+          margin-top: 1.5rem;
+          padding: 1.5rem;
+          background: #f8f9fa;
+          border-radius: 10px;
+          white-space: pre-wrap;
+          font-family: monospace;
+          font-size: 0.9rem;
+          line-height: 1.5;
+          max-height: 400px;
+          overflow-y: auto;
+      }
+
+      .space-content {
+          text-align: center;
+          line-height: 1.8;
+      }
+
+      .hover-text {
+          transition: color 0.3s ease, text-shadow 0.3s ease;
+          cursor: pointer;
+      }
+
+      .hover-text:hover {
+          color: #2575fc;
+          text-shadow: 0 2px 10px rgba(37, 117, 252, 0.3);
+      }
+
+      .space-title {
+          font-size: 2.5rem;
+          margin-bottom: 1rem;
+          background: linear-gradient(45deg, #6a11cb, #2575fc);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+      }
+
+      .space-paragraph {
+          font-size: 1.1rem;
+          margin: 1.5rem 0;
+      }
+
+      .star {
+          display: inline-block;
+          margin: 0 5px;
+          animation: twinkle 2s infinite alternate;
+      }
+
+      @keyframes twinkle {
+          0% { opacity: 0.3; }
+          100% { opacity: 1; }
+      }
+
+      .red {
+          color: red;
+          font-weight: 700;
+      }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="space-content">
+    <h1 class="space-title hover-text">🚀 Путешествие к звёздам</h1>
+
+    <p class="space-paragraph">
+      <span class="hover-text">Космос</span> — это бесконечная тайна, которая манит человечество уже тысячи лет.
+      <span class="star">⭐</span>
+      <span class="hover-text">Звёзды</span>, словно алмазы на чёрном бархате ночного неба, рассказывают нам истории
+      о <span class="hover-text">далёких мирах</span> и <span class="hover-text">невероятных возможностях</span>.
+    </p>
+
+    <p class="space-paragraph">
+      <span class="red">Представьте себе:</span> вы находитесь на борту <span class="hover-text">космического корабля</span>,
+      летящего со скоростью света к <span class="hover-text">неизведанной планете</span>.
+      <span class="star">✨</span>
+      За иллюминатором проплывают <span class="hover-text">туманности</span>,
+      переливающиеся всеми цветами радуги, а впереди светит <span class="hover-text">двойная звезда</span>,
+      освещающая путь к новому дому для человечества.
+    </p>
+
+    <p class="space-paragraph">
+      <span class="hover-text">Марс</span> уже ждёт первых поселенцев,
+      <span class="hover-text">спутники Юпитера</span> скрывают подлёдные океаны с возможной жизнью,
+      а где-то в глубинах <span class="hover-text">галактики Андромеды</span>
+      <span class="star">🌟</span>
+      может существовать <span class="hover-text">высокоразвитая цивилизация</span>,
+      которая тоже мечтает о встрече с нами.
+    </p>
+
+    <p class="space-paragraph">
+      Будущее <span class="hover-text">космических путешествий</span> начинается сегодня.
+      Каждый <span class="hover-text">научный прорыв</span>, каждое <span class="hover-text">открытие</span>
+      приближает нас к тому моменту, когда <span class="hover-text">межзвёздные полёты</span>
+      станут такими же обычными, как сегодня авиаперелёты.
+      <span class="star">🌠</span>
+    </p>
+  </div>
+</div>
+</body>
+</html>

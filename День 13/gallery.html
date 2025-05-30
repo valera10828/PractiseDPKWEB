@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      .container {
+          position: relative;
+          width: 100%;
+          max-width: 1000px;
+          height: 600px;
+          margin: 30px auto;
+          background: #f5f5f5;
+          box-shadow: 0 30px 50px #dbdbdb;
+          overflow: hidden;
+      }
+
+      .container .slide .item {
+          width: 200px;
+          height: 300px;
+          position: absolute;
+          top: 50%;
+          transform: translate(0, -50%);
+          border-radius: 20px;
+          box-shadow: 0 30px 50px #505050;
+          background-position: center center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          display: inline-block;
+          transition: 0.5s;
+      }
+
+      .slide .item:nth-child(1),
+      .slide .item:nth-child(2) {
+          top: 0;
+          left: 0;
+          transform: translate(0, 0);
+          border-radius: 0;
+          width: 100%;
+          height: 100%;
+      }
+
+      .slide .item:nth-child(2) .content {
+          display: block;
+      }
+
+      .slide .item:nth-child(3) {
+          left: 50%;
+      }
+
+      .slide .item:nth-child(4) {
+          left: calc(50% + 220px);
+      }
+
+      .slide .item:nth-child(5) {
+          left: calc(50% + 440px);
+      }
+
+      .slide .item:nth-child(n + 6) {
+          left: calc(50% + 440px);
+          opacity: 0;
+      }
+
+      .item .content {
+          position: absolute;
+          top: 50%;
+          left: 100px;
+          width: 300px;
+          text-align: left;
+          color: #fff;
+          transform: translate(0, -50%);
+          font-family: Arial, sans-serif;
+          display: none;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+
+      .content .name {
+          font-size: 40px;
+          text-transform: uppercase;
+          font-weight: bold;
+          opacity: 0;
+          animation: animate 1s ease-in-out 1 forwards;
+      }
+
+      .content .description {
+          margin: 15px 0 25px;
+          opacity: 0;
+          animation: animate 1s ease-in-out 0.3s 1 forwards;
+      }
+
+      .content button {
+          padding: 10px 20px;
+          border: none;
+          background: #fff;
+          color: #333;
+          border-radius: 5px;
+          font-weight: bold;
+          cursor: pointer;
+          opacity: 0;
+          animation: animate 1s ease-in-out 0.6s 1 forwards;
+      }
+
+      .content button:hover {
+          background: #eaeaea;
+      }
+
+      @keyframes animate {
+          from {
+              opacity: 0;
+              transform: translate(0, 100px);
+              filter: blur(33px);
+          }
+
+          to {
+              opacity: 1;
+              transform: translate(0);
+              filter: blur(0);
+          }
+      }
+
+      .button {
+          width: 100%;
+          text-align: center;
+          position: absolute;
+          bottom: 20px;
+      }
+
+      .button button {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: none;
+          cursor: pointer;
+          margin: 0 5px;
+          border: 1px solid #000;
+          transition: 0.3s;
+          background: rgba(255, 255, 255, 0.7);
+      }
+
+      .button button:hover {
+          background: #333;
+          color: #fff;
+      }
+
+      .section__btm h3 {
+          text-align: center;
+          margin-bottom: 20px;
+          font-size: 24px;
+          color: #333;
+      }
+  </style>
+</head>
+<body>
+<section class="section">
+  <div class="section__btm">
+    <div class="container">
+      <div class="slide">
+        <div class="item" style="background-image: url('https://avatars.mds.yandex.net/i?id=0fb0e665da864d801e24ece24f286715_l-12514612-images-thumbs&n=13');">
+          <div class="content">
+            <div class="name">Москва</div>
+            <div class="description">Один из крупнейших городов Европы</div>
+            <button>Подробнее</button>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url('https://supersnimki.ru/images/pub/2020/01/20/a7aa3ade-3bb3-11ea-9969-b01d5794ee1c_original.jpg');">
+          <div class="content">
+            <div class="name">Красная площадь</div>
+            <div class="description">Центральная достопримечательность Москвы</div>
+            <button>Подробнее</button>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url('https://www.urlaubstracker.at/wp-content/uploads/2016/09/rote_telefonzelle_london.jpg');">
+          <div class="content">
+            <div class="name">Красная будка</div>
+            <div class="description">Символ Великобритании</div>
+            <button>Подробнее</button>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url('https://www.thesun.co.uk/wp-content/uploads/2020/01/NINTCHDBPICT000307961384.jpg');">
+          <div class="content">
+            <div class="name">Биг Бен</div>
+            <div class="description">Знаменитая часовая башня в Лондоне</div>
+            <button>Подробнее</button>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url('https://static.independent.co.uk/s3fs-public/thumbnails/image/2020/09/03/11/istock-510967662.jpg');">
+          <div class="content">
+            <div class="name">Тауэрский мост</div>
+            <div class="description">Разводной мост через реку Темзу</div>
+            <button>Подробнее</button>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url('https://sletaem.by/wp-content/uploads/2021/01/19.jpg');">
+          <div class="content">
+            <div class="name">Италия</div>
+            <div class="description">Живописные пейзажи туманного Альбиона</div>
+            <button>Подробнее</button>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url('https://avatars.mds.yandex.net/i?id=bb69544f420a199ca478b8edf67aec8c_l-12890014-images-thumbs&n=13');">
+          <div class="content">
+            <div class="name">Прибрежный город</div>
+            <div class="description"></div>
+            <button>Подробнее</button>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url('https://i.pinimg.com/originals/de/70/41/de704106056280ee3ce4a777d7015879.jpg');">
+          <div class="content">
+            <div class="name">Дворцовая стража</div>
+            <div class="description">Королевские гвардейцы на страже порядка</div>
+            <button>Подробнее</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="button">
+        <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+        <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <script>
+      let next = document.querySelector('.next');
+      let prev = document.querySelector('.prev');
+
+      next.addEventListener('click', function() {
+        let items = document.querySelectorAll('.item');
+        document.querySelector('.slide').appendChild(items[0]);
+      });
+
+      prev.addEventListener('click', function() {
+        let items = document.querySelectorAll('.item');
+        document.querySelector('.slide').prepend(items[items.length - 1]);
+      });
+    </script>
+  </div>
+</section>
+</body>
+</html>

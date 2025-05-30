@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css"
+  />
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          user-select: none;
+      }
+
+      h2 {
+          font-size: 3rem;
+      }
+
+      .section__btm {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+          justify-content: center;
+          background-color: #fff;
+          border-radius: 10px;
+          padding: 20px;
+          max-width: 1200px;
+          margin-inline: auto;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      section:nth-of-type(1) {
+          background-color: #7fb5b5;
+      }
+
+      section:nth-of-type(2) {
+          background-color: #efa94a;
+      }
+
+      section:nth-of-type(3) {
+          background-color: #ff8c69;
+      }
+
+      section:nth-of-type(4) {
+          background-color: #ffb28b;
+      }
+
+      section:nth-of-type(5) {
+          background-color: #e6e6fa;
+      }
+
+      button {
+          border: none;
+          outline: none;
+          padding: 20px 40px;
+          margin-bottom: 10px;
+          font-size: 2rem;
+          border-radius: 10px;
+          background-color: #cccaca;
+      }
+
+      button:hover {
+          cursor: pointer;
+          background: #afd5d5;
+      }
+
+      .vacation-calculator {
+          width: 100%;
+          font-family: Arial, sans-serif;
+      }
+
+      .vacation-calculator h3 {
+          text-align: center;
+          margin-bottom: 15px;
+          font-size: 1.5rem;
+      }
+
+      .calculator-container {
+          display: flex;
+          gap: 20px;
+          margin-bottom: 20px;
+      }
+
+      .calculator-block {
+          flex: 1;
+          border: 1px solid #ccc;
+          padding: 15px;
+          border-radius: 5px;
+          background-color: #f9f9f9;
+      }
+
+      .select-container,
+      .period-container,
+      .result-container,
+      .additional-days-container {
+          margin-bottom: 15px;
+      }
+
+      .select-wrapper,
+      .date-inputs,
+      .result-input {
+          display: flex;
+          align-items: center;
+          margin-top: 5px;
+      }
+
+      select,
+      input {
+          padding: 5px;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+          flex: 1;
+      }
+
+      .date-inputs {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-top: 5px;
+      }
+
+      .total-result {
+          border: 1px solid #ccc;
+          padding: 15px;
+          border-radius: 5px;
+          background-color: #f9f9f9;
+      }
+
+      .total-days {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          margin: 15px 0;
+          font-size: 1.2rem;
+          font-weight: bold;
+      }
+
+      .action-buttons {
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+      }
+
+      .action-btn {
+          padding: 8px 15px;
+          background-color: #f0f0f0;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+      }
+
+      #clear-btn {
+          background-color: #f8f8f8;
+      }
+
+      #close-btn {
+          background-color: #f0f0f0;
+          color: #333;
+      }
+  </style>
+</head>
+<body>
+<div id="fullpage">
+  <section class="section">
+    <div class="section__btm">
+      <h2>Пример 1</h2>
+      <a href="Пример%201/index.html"><button>Перейти</button></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__btm">
+      <h2>Пример 2</h2>
+      <a href="Пример%202/index.html"><button>Перейти</button></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__btm">
+      <h2>Пример 3</h2>
+      <a href="Пример%203/index.html"><button>Перейти</button></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__btm">
+      <h2>Пример 4</h2>
+      <a href="Пример%204/index.html"><button>Перейти</button></a>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section__btm">
+      <h2>Самостоятельная работа </h2>
+      <a href="Самостоятельное%20задание/index.html"><button>Перейти</button></a>
+    </div>
+  </section>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+<script>
+  new fullpage("#fullpage", {
+    autoScrolling: true,
+    scrollHorizontally: false,
+    navigation: true,
+    navigationPosition: "right",
+    css3: true,
+  });
+</script>
+</body>
+</html>

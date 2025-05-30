@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css"
+  />
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          user-select: none;
+      }
+
+      h2 {
+          font-size: 3rem;
+      }
+
+      section:nth-of-type(1) {
+          background-color: #7fb5b5;
+      }
+
+      section:nth-of-type(2) {
+          background-color: #efa94a;
+      }
+
+      section:nth-of-type(3) {
+          background-color: #ff8c69;
+      }
+
+      section:nth-of-type(4) {
+          background-color: #ffb28b;
+      }
+
+      section:nth-of-type(5) {
+          background-color: #e6e6fa;
+      }
+
+      section:nth-of-type(6) {
+          background-color: #77dd77;
+      }
+
+      section:nth-of-type(7) {
+          background-color: #e4717a;
+      }
+
+      section:nth-of-type(8) {
+          background-color: #b39f7a;
+      }
+
+      section:nth-of-type(9) {
+          background-color: #3eb489;
+      }
+
+      section:nth-of-type(10) {
+          background-color: #ccccff;
+      }
+
+      button {
+          border: none;
+          outline: none;
+          padding: 20px 40px;
+          margin-bottom: 10px;
+          font-size: 2rem;
+          border-radius: 10px;
+          background-color: #cccaca;
+      }
+
+      button:hover {
+          cursor: pointer;
+          background: #afd5d5;
+      }
+
+      .section__btm {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+          justify-content: center;
+          background-color: #fff;
+          border-radius: 10px;
+          padding: 20px;
+          max-width: 1200px;
+          margin-inline: auto;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      a {
+          text-decoration: none;
+          color: #000;
+          font-size: 1.1rem;
+      }
+
+      .image-gallery {
+          display: flex;
+          gap: 15px;
+          flex-wrap: wrap;
+          justify-content: center;
+          margin-top: 20px;
+      }
+
+      .image-gallery img {
+          border-radius: 8px;
+          transition: all 0.3s ease;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      }
+
+      .image-gallery img:hover {
+          transform: scale(1.1);
+          box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      }
+
+      .animation-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 20px 0;
+      }
+
+      .animation-container img {
+          cursor: pointer;
+          border-radius: 4px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease;
+      }
+
+      .animation-container img:hover {
+          transform: scale(1.1);
+      }
+
+      .animation-container p {
+          margin-top: 10px;
+          font-size: 14px;
+          color: #555;
+      }
+
+      .magazine-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1000px;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.magazine-cover {
+    position: relative;
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #2d5016 0%, #3e7b27 20%, #4caf50 50%, #66bb6a 80%, #81c784 100%);
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(76, 175, 80, 0.4);
+    transition: all 0.4s ease;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.magazine-cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    pointer-events: none;
+}
+
+.magazine-cover:hover {
+    transform: translateY(-8px) rotateY(5deg);
+    box-shadow: 0 20px 40px rgba(76, 175, 80, 0.6);
+    background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 20%, #388e3c 50%, #4caf50 80%, #66bb6a 100%);
+}
+
+.magazine-cover:nth-child(2) {
+    background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 20%, #43a047 50%, #66bb6a 80%, #81c784 100%);
+}
+
+.magazine-cover:nth-child(2):hover {
+    background: linear-gradient(135deg, #0d3b0d 0%, #1b5e20 20%, #2e7d32 50%, #388e3c 80%, #4caf50 100%);
+}
+
+.magazine-cover h3 {
+    position: relative;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+    font-weight: 800;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #ffffff, #e8f5e8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    z-index: 2;
+}
+
+.magazine-issue {
+    position: relative;
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    opacity: 0.95;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-weight: 600;
+    z-index: 2;
+}
+
+.magazine-features {
+    position: relative;
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    z-index: 2;
+}
+
+.magazine-features ul {
+    list-style: none;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.magazine-features li {
+    margin-bottom: 12px;
+    padding-left: 30px;
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 8px 8px 8px 30px;
+}
+
+.magazine-features li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.magazine-features li:before {
+    content: "🌱";
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.magazine-features li:nth-child(even):before {
+    content: "🍃";
+}
+
+.magazine-features li:nth-child(3n):before {
+    content: "🌿";
+}
+
+.magazine-cover:nth-child(2) .magazine-features li:before {
+    content: "⚡";
+}
+
+.magazine-cover:nth-child(2) .magazine-features li:nth-child(even):before {
+    content: "🔬";
+}
+
+.magazine-cover:nth-child(2) .magazine-features li:nth-child(3n):before {
+    content: "🚀";
+}
+
+.magazine-cover::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    transform: rotate(45deg);
+    transition: all 0.4s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.magazine-cover:hover::after {
+    opacity: 1;
+    transform: rotate(45deg) scale(1.2);
+}
+
+      .brochure-container {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          padding: 40px;
+          border-radius: 20px;
+          color: white;
+          max-width: 800px;
+          width: 100%;
+          text-align: center;
+          box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+          margin: 20px 0;
+      }
+
+      .brochure-header {
+          margin-bottom: 30px;
+      }
+
+      .brochure-header h3 {
+          font-size: 3rem;
+          margin-bottom: 10px;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      }
+
+      .brochure-subtitle {
+          font-size: 1.5rem;
+          opacity: 0.9;
+          margin-bottom: 30px;
+      }
+
+      .brochure-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 25px;
+          margin: 30px 0;
+      }
+
+      .brochure-card {
+          background: rgba(255,255,255,0.1);
+          padding: 25px;
+          border-radius: 15px;
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255,255,255,0.2);
+          transition: all 0.3s ease;
+      }
+
+      .brochure-card:hover {
+          transform: translateY(-5px);
+          background: rgba(255,255,255,0.15);
+      }
+
+      .brochure-icon {
+          font-size: 3rem;
+          margin-bottom: 15px;
+      }
+
+      .brochure-card h4 {
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+      }
+
+      .brochure-card p {
+          font-size: 1rem;
+          line-height: 1.5;
+          opacity: 0.9;
+      }
+
+      .brochure-cta {
+          margin-top: 30px;
+          padding: 15px 40px;
+          background: rgba(255,255,255,0.2);
+          border: 2px solid white;
+          color: white;
+          font-size: 1.2rem;
+          border-radius: 30px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+      }
+
+      .brochure-cta:hover {
+          background: white;
+          color: #667eea;
+          transform: scale(1.05);
+      }
+
+
+  </style>
+</head>
+<body>
+<div id="fullpage">
+  <section class="section">
+    <div class="section__btm">
+      <h2>Пример 1</h2>
+      <h3>Демонстрация событий изображения</h3>
+      <a href="javascript:void(0)"
+         onMouseOver="document.pic.src='https://wallup.net/wp-content/uploads/2019/09/485679-lake-usa-colorado-maroon-bells-sun-sunlight-forest-mountains-3.jpg'"
+         onMouseDown="document.pic.src='https://cdn1.ozone.ru/s3/multimedia-1/6368537725.jpg'"
+         onMouseUp="document.pic.src='https://img3.wallspic.com/attachments/originals/8/0/5/5/45508-sciences-ciel-le_lac_peyto-ecosysteme-les_reliefs_montagneux-4096x2725.jpg'"
+         onMouseOut="document.pic.src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/48c4f1ec-003c-4e1c-98e7-205411b5ee3d/dg2f22b-ac782843-f2cf-480d-b820-01df7f933b07.jpg/v1/fill/w_1095,h_730,q_70,strp/nature1_by_bobalat_dg2f22b-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODUzIiwicGF0aCI6IlwvZlwvNDhjNGYxZWMtMDAzYy00ZTFjLTk4ZTctMjA1NDExYjVlZTNkXC9kZzJmMjJiLWFjNzgyODQzLWYyY2YtNDgwZC1iODIwLTAxZGY3ZjkzM2IwNy5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.VHkRghS39bxUOVvEhx5mgBuZQG3Wiv_NdIb8V95T8rI'">
+        <img
+             src="https://avatars.mds.yandex.net/i?id=966354b41d1bdca216b4705e31a0f2ae_l-10752166-images-thumbs&n=13g"
+             border=0 name="pic" alt="Интерактивное изображение"
+             width="400" height="200"
+        >
+      </a>
+      <p>Наведите, нажмите и отпустите курсор на изображении</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__btm">
+      <h2>Пример 2</h2>
+      <h3>Смена изображений при наведении</h3>
+      <div class="image-gallery">
+        <a href="javascript:void(0)" onMouseOver="this.querySelector('img').src='https://i.pinimg.com/originals/15/64/4b/15644be9df6db0978f230a40f57425bc.jpg'" onMouseOut="this.querySelector('img').src='https://avatars.mds.yandex.net/i?id=3708739684d91fe451cf2caab43b08df6106e41c-4090774-images-thumbs&n=13'">
+          <img src="https://avatars.mds.yandex.net/i?id=af435436c062b4da89f412ef86a46b23_l-5372356-images-thumbs&n=13" width="150" height="100" alt="Изображение 1">
+        </a>
+        <a href="javascript:void(0)" onMouseOver="this.querySelector('img').src='https://s3.fotokto.ru/photo/full/707/7079926.jpg'" onMouseOut="this.querySelector('img').src='https://cdn.culture.ru/images/bae91986-44e9-5d68-b0f1-43daef101eb2'">
+          <img src="https://cdn.culture.ru/images/553e2550-5b26-5459-b3f7-b797a3e0e18c" width="150" height="100" alt="Изображение 2">
+        </a>
+        <a href="javascript:void(0)" onMouseOver="this.querySelector('img').src='https://main-cdn.sbermegamarket.ru/big2/hlr-system/172/169/166/181/718/7/600013116687b4.jpeg'" onMouseOut="this.querySelector('img').src='https://cdn.culture.ru/images/2057cf04-7a16-5675-abd3-9fd1520086a2'">
+          <img src="https://i.pinimg.com/originals/1f/9e/15/1f9e15adbbca485e43471c9cb7e04562.jpg" width="150" height="100" alt="Изображение 3">
+        </a>
+        <a href="javascript:void(0)" onMouseOver="this.querySelector('img').src='https://avatars.mds.yandex.net/get-mpic/3907093/img_id2442482872928861490.jpeg/orig'" onMouseOut="this.querySelector('img').src='https://i.pinimg.com/originals/22/33/8d/22338d6c69473881323c02d53de1f37c.jpg'">
+          <img src="https://stihi.ru/pics/2012/12/19/7494.jpg" width="150" height="100" alt="Изображение 4">
+        </a>
+        <a href="javascript:void(0)" onMouseOver="this.querySelector('img').src='https://avatars.mds.yandex.net/get-mpic/1626700/img_id2265145732376854436.jpeg/orig'" onMouseOut="this.querySelector('img').src='https://avatars.mds.yandex.net/get-mpic/4571152/img_id3370287247566782890.jpeg/orig'">
+          <img src="https://get.wallhere.com/photo/1920x1200-px-forest-landscape-snow-trees-1286775.jpg" width="150" height="100" alt="Изображение 5">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__btm">
+      <h2>Пример 3</h2>
+      <h3>Анимация изображения</h3>
+
+      <div class="animation-container">
+        <img src="0.jpg"
+             width="450" height="300" onClick="animation(6)" alt="Анимация">
+        <p>Нажмите на изображение для запуска анимации</p>
+      </div>
+
+      <script>
+        numerals = new Array(6);
+        for(var i = 1; i < 6; i++) {
+          numerals[i] = new Image();
+          numerals[i].src = i + ".jpg";
+        }
+
+        function animation(count) {
+          document.querySelector('.animation-container img').src = count + ".jpg";
+          count--;
+          if(count >= 0) {
+            setTimeout("animation(" + count + ");", 1000);
+          }
+        }
+      </script>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__btm">
+      <h2>Задание 1</h2>
+      <a href="gallery.html"><button>Перейти на страницу</button></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__btm">
+      <h2>Задание 2</h2>
+      <h3>Журнал "Технологии будущего"</h3>
+      <div class="magazine-container">
+        <div class="magazine-cover">
+          <h3>TECH FUTURE</h3>
+          <div class="magazine-issue">Выпуск №12 | Декабрь 2024</div>
+          <div class="magazine-features">
+            <ul>
+              <li>Искусственный интеллект в медицине</li>
+              <li>Квантовые компьютеры: новая эра</li>
+              <li>Экологические технологии</li>
+              <li>Роботизация производства</li>
+              <li>Виртуальная реальность в образовании</li>
+            </ul>
+          </div>
+        </div>
+        <div class="magazine-cover">
+          <h3>СПЕЦИАЛЬНЫЙ ВЫПУСК</h3>
+          <div class="magazine-issue">Инновации 2025</div>
+          <div class="magazine-features">
+            <ul>
+              <li>Нейроинтерфейсы</li>
+              <li>Автономные транспортные системы</li>
+              <li>Биотехнологии и генная терапия</li>
+              <li>Умные города будущего</li>
+              <li>Космические технологии</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__btm">
+      <h2>Задание 3</h2>
+      <h3>Брошюра колледжа</h3>
+      <div class="brochure-container">
+        <div class="brochure-header">
+          <h3>ДОНЕЦКИЙ ПОЛИТЕХНИЧЕСКИЙ КОЛЛЕДЖ</h3>
+          <div class="brochure-subtitle">Качественное техническое образование с 1961 года</div>
+        </div>
+
+        <div class="brochure-grid">
+          <div class="brochure-card">
+            <div class="brochure-icon">⚙️</div>
+            <h4>Машиностроение</h4>
+            <p>Подготовка техников-механиков, слесарей, токарей и специалистов по обработке металлов</p>
+          </div>
+
+          <div class="brochure-card">
+            <div class="brochure-icon">⚡</div>
+            <h4>Электроэнергетика</h4>
+            <p>Обучение электротехников, энергетиков и специалистов по автоматизации производства</p>
+          </div>
+
+          <div class="brochure-card">
+            <div class="brochure-icon">🏗️</div>
+            <h4>Строительство</h4>
+            <p>Подготовка строителей, архитекторов, геодезистов и специалистов по промышленному строительству</p>
+          </div>
+
+          <div class="brochure-card">
+            <div class="brochure-icon">💻</div>
+            <h4>Информационные технологии</h4>
+            <p>Изучение программирования, компьютерных сетей, баз данных и системного администрирования</p>
+          </div>
+        </div>
+
+        <div style="margin: 30px 0; font-size: 1.2rem;">
+          <strong>Почему выбирают нас?</strong><br>
+          ✓ Более 60 лет опыта подготовки квалифицированных кадров<br>
+          ✓ Современная учебно-производственная база<br>
+          ✓ Практика на ведущих предприятиях региона<br>
+          ✓ Трудоустройство выпускников на крупных производствах<br>
+          ✓ Дипломы государственного образца
+        </div>
+
+        <button class="brochure-cta" onclick="alert('Спасибо за интерес! Приемная комиссия работает с понедельника по пятницу с 9:00 до 17:00')">
+          ПОДАТЬ ДОКУМЕНТЫ
+        </button>
+      </div>
+    </div>
+  </section>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+<script>
+  new fullpage("#fullpage", {
+    autoScrolling: true,
+    scrollHorizontally: false,
+    navigation: true,
+    navigationPosition: "right",
+    css3: true,
+  });
+</script>
+
+</body>
+</html>

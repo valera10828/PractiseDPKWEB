@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Задания</title>
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          user-select: none;
+      }
+
+      body {
+          min-height: 100vh;
+          padding: 20px;
+      }
+
+      #fullpage {
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
+      }
+
+      h2 {
+          font-size: 2.5rem;
+          margin-bottom: 20px;
+      }
+
+      section:nth-of-type(1) {
+          background-color: #7fb5b5;
+      }
+
+      section:nth-of-type(2) {
+          background-color: #efa94a;
+      }
+
+      section:nth-of-type(3) {
+          background-color: #ff8c69;
+      }
+
+      section:nth-of-type(4) {
+          background-color: #ffb28b;
+      }
+
+      button {
+          border: none;
+          outline: none;
+          padding: 10px 20px;
+          margin-bottom: 10px;
+          font-size: 1rem;
+          border-radius: 5px;
+          background-color: #cccaca;
+      }
+
+      button:hover {
+          cursor: pointer;
+          background: #afd5d5;
+      }
+
+      .section__btm {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+          justify-content: center;
+          background-color: #fff;
+          border-radius: 10px;
+          padding: 30px;
+          max-width: 1200px;
+          margin: 30px auto;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          overflow-y: visible;
+          max-height: none;
+      }
+
+      /* Стили для форм */
+      .form-container {
+          width: 100%;
+          max-width: 600px;
+      }
+
+      .form-group {
+          margin-bottom: 15px;
+          width: 100%;
+      }
+
+      label {
+          display: block;
+          margin-bottom: 5px;
+          font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      select,
+      textarea {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          font-size: 16px;
+      }
+
+      .submit-btn {
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          padding: 12px 20px;
+          font-size: 16px;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+
+      .submit-btn:hover {
+          background-color: #45a049;
+      }
+
+      /* Стили для теста */
+      .test-question {
+          margin-bottom: 20px;
+          text-align: left;
+          width: 100%;
+      }
+
+      .test-question p {
+          font-weight: bold;
+          margin-bottom: 5px;
+      }
+
+      .option {
+          display: block;
+          margin: 5px 0;
+      }
+
+      /* Стили для списка дней практики */
+      .practice-days {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+      }
+
+      .day-btn {
+          text-align: left;
+          padding: 10px;
+          background-color: #f0f0f0;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+      }
+
+      .day-btn:hover {
+          background-color: #e0e0e0;
+      }
+
+      .day-tasks {
+          display: none;
+          padding: 10px;
+          background-color: #f9f9f9;
+          border: 1px solid #eee;
+          border-radius: 5px;
+          margin-top: 5px;
+      }
+
+      .result-container {
+          margin-top: 20px;
+          padding: 15px;
+          background-color: #f0f0f0;
+          border-radius: 5px;
+          text-align: center;
+      }
+  </style>
+</head>
+<body>
+
+<section class="section" id="section1">
+  <div class="section__btm">
+    <h2>Форма регистрации на сайте</h2>
+    <div class="form-container">
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="fullName">ФИО:</label>
+          <input type="text" id="fullName" name="fullName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Пароль:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Подтверждение пароля:</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </div>
+
+        <div class="form-group">
+          <label for="birthdate">Дата рождения:</label>
+          <input type="date" id="birthdate" name="birthdate">
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Пол:</label>
+          <select id="gender" name="gender">
+            <option value="">Выберите пол</option>
+            <option value="male">Мужской</option>
+            <option value="female">Женский</option>
+            <option value="other">Другой</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Интересы:</label>
+          <div>
+            <input type="checkbox" id="interest1" name="interests" value="programming">
+            <label for="interest1">Программирование</label>
+          </div>
+          <div>
+            <input type="checkbox" id="interest2" name="interests" value="design">
+            <label for="interest2">Дизайн</label>
+          </div>
+          <div>
+            <input type="checkbox" id="interest3" name="interests" value="music">
+            <label for="interest3">Музыка</label>
+          </div>
+          <div>
+            <input type="checkbox" id="interest4" name="interests" value="sports">
+            <label for="interest4">Спорт</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="agreement">
+            <input type="checkbox" id="agreement" name="agreement" required>
+            Я согласен с условиями использования
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn">Зарегистрироваться</button>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- Пример 2: Форма тестирования студентов -->
+<section class="section" id="section2">
+  <div class="section__btm">
+    <h2>Тестирование навыков студентов</h2>
+    <div class="form-container">
+      <form id="testForm">
+        <div class="test-question">
+          <p>1. HTML - это:</p>
+          <label class="option"><input type="radio" name="q1" value="a"> Язык программирования</label>
+          <label class="option"><input type="radio" name="q1" value="b"> Язык разметки</label>
+          <label class="option"><input type="radio" name="q1" value="c"> Библиотека JavaScript</label>
+        </div>
+
+        <div class="test-question">
+          <p>2. CSS используется для:</p>
+          <label class="option"><input type="radio" name="q2" value="a"> Оформления веб-страниц</label>
+          <label class="option"><input type="radio" name="q2" value="b"> Написания скриптов</label>
+          <label class="option"><input type="radio" name="q2" value="c"> Обработки данных на сервере</label>
+        </div>
+
+        <div class="test-question">
+          <p>3. JavaScript - это:</p>
+          <label class="option"><input type="radio" name="q3" value="a"> Серверный язык</label>
+          <label class="option"><input type="radio" name="q3" value="b"> Клиентский язык программирования</label>
+          <label class="option"><input type="radio" name="q3" value="c"> Система управления базами данных</label>
+        </div>
+
+        <div class="test-question">
+          <p>4. DOM это:</p>
+          <label class="option"><input type="radio" name="q4" value="a"> Document Object Model</label>
+          <label class="option"><input type="radio" name="q4" value="b"> Data Object Management</label>
+          <label class="option"><input type="radio" name="q4" value="c"> Digital Operation Module</label>
+        </div>
+
+        <div class="test-question">
+          <p>5. Какой тег используется для создания ссылки?</p>
+          <label class="option"><input type="radio" name="q5" value="a"> &lt;a&gt;</label>
+          <label class="option"><input type="radio" name="q5" value="b"> &lt;link&gt;</label>
+          <label class="option"><input type="radio" name="q5" value="c"> &lt;href&gt;</label>
+        </div>
+
+        <div class="test-question">
+          <p>6. Какой метод массива добавляет элемент в конец?</p>
+          <label class="option"><input type="radio" name="q6" value="a"> push()</label>
+          <label class="option"><input type="radio" name="q6" value="b"> pop()</label>
+          <label class="option"><input type="radio" name="q6" value="c"> add()</label>
+        </div>
+
+        <div class="test-question">
+          <p>7. Какой селектор используется для выбора элементов по классу в CSS?</p>
+          <label class="option"><input type="radio" name="q7" value="a"> #</label>
+          <label class="option"><input type="radio" name="q7" value="b"> .</label>
+          <label class="option"><input type="radio" name="q7" value="c"> @</label>
+        </div>
+
+        <div class="test-question">
+          <p>8. Для чего используется метод querySelector?</p>
+          <label class="option"><input type="radio" name="q8" value="a"> Для поиска элементов в DOM</label>
+          <label class="option"><input type="radio" name="q8" value="b"> Для изменения стилей элемента</label>
+          <label class="option"><input type="radio" name="q8" value="c"> Для отправки запросов на сервер</label>
+        </div>
+
+        <div class="test-question">
+          <p>9. Что такое SQL?</p>
+          <label class="option"><input type="radio" name="q9" value="a"> Язык структурированных запросов</label>
+          <label class="option"><input type="radio" name="q9" value="b"> Язык программирования для
+            веб-разработки</label>
+          <label class="option"><input type="radio" name="q9" value="c"> Стандарт качества кода</label>
+        </div>
+
+        <div class="test-question">
+          <p>10. Что такое API?</p>
+          <label class="option"><input type="radio" name="q10" value="a"> Программный интерфейс приложения</label>
+          <label class="option"><input type="radio" name="q10" value="b"> Анализ программных ошибок</label>
+          <label class="option"><input type="radio" name="q10" value="c"> Алгоритм процессорных инструкций</label>
+        </div>
+
+        <div class="test-question">
+          <p>11. Какой тип данных НЕ существует в JavaScript?</p>
+          <label class="option"><input type="radio" name="q11" value="a"> Boolean</label>
+          <label class="option"><input type="radio" name="q11" value="b"> String</label>
+          <label class="option"><input type="radio" name="q11" value="c"> Integer</label>
+        </div>
+
+        <div class="test-question">
+          <p>12. Что такое Git?</p>
+          <label class="option"><input type="radio" name="q12" value="a"> Система контроля версий</label>
+          <label class="option"><input type="radio" name="q12" value="b"> Фреймворк JavaScript</label>
+          <label class="option"><input type="radio" name="q12" value="c"> Графический редактор</label>
+        </div>
+
+        <div class="test-question">
+          <p>13. Какой HTTP метод используется для получения данных?</p>
+          <label class="option"><input type="radio" name="q13" value="a"> POST</label>
+          <label class="option"><input type="radio" name="q13" value="b"> GET</label>
+          <label class="option"><input type="radio" name="q13" value="c"> DELETE</label>
+        </div>
+
+        <div class="test-question">
+          <p>14. Что такое responsive design?</p>
+          <label class="option"><input type="radio" name="q14" value="a"> Адаптивный дизайн для разных устройств</label>
+          <label class="option"><input type="radio" name="q14" value="b"> Быстро загружающийся дизайн</label>
+          <label class="option"><input type="radio" name="q14" value="c"> Интерактивный дизайн</label>
+        </div>
+
+        <div class="test-question">
+          <p>15. Для чего используется localStorage?</p>
+          <label class="option"><input type="radio" name="q15" value="a"> Для хранения данных на сервере</label>
+          <label class="option"><input type="radio" name="q15" value="b"> Для хранения данных в браузере</label>
+          <label class="option"><input type="radio" name="q15" value="c"> Для передачи данных между серверами</label>
+        </div>
+
+        <div class="test-question">
+          <p>16. Что такое REST API?</p>
+          <label class="option"><input type="radio" name="q16" value="a"> Библиотека для работы с базами данных</label>
+          <label class="option"><input type="radio" name="q16" value="b"> Архитектурный стиль для взаимодействия
+            компонентов</label>
+          <label class="option"><input type="radio" name="q16" value="c"> Метод тестирования приложений</label>
+        </div>
+
+        <div class="test-question">
+          <p>17. Что такое SQL инъекция?</p>
+          <label class="option"><input type="radio" name="q17" value="a"> Метод оптимизации запросов к базе
+            данных</label>
+          <label class="option"><input type="radio" name="q17" value="b"> Техника атаки на базу данных</label>
+          <label class="option"><input type="radio" name="q17" value="c"> Способ импорта данных в базу</label>
+        </div>
+
+        <div class="test-question">
+          <p>18. Какой язык программирования чаще всего используется для машинного обучения?</p>
+          <label class="option"><input type="radio" name="q18" value="a"> JavaScript</label>
+          <label class="option"><input type="radio" name="q18" value="b"> Python</label>
+          <label class="option"><input type="radio" name="q18" value="c"> C++</label>
+        </div>
+
+        <div class="test-question">
+          <p>19. Что такое CORS?</p>
+          <label class="option"><input type="radio" name="q19" value="a"> Cross-Origin Resource Sharing</label>
+          <label class="option"><input type="radio" name="q19" value="b"> Computer Operating Resource System</label>
+          <label class="option"><input type="radio" name="q19" value="c"> Configuration of Remote Servers</label>
+        </div>
+
+        <div class="test-question">
+          <p>20. Что такое PWA?</p>
+          <label class="option"><input type="radio" name="q20" value="a"> Progressive Web Application</label>
+          <label class="option"><input type="radio" name="q20" value="b"> Personal Web Assistant</label>
+          <label class="option"><input type="radio" name="q20" value="c"> Professional Web Analytics</label>
+        </div>
+
+        <button type="button" class="submit-btn" id="checkTestBtn">Проверить результаты</button>
+
+        <div id="testResult" class="result-container" style="display: none;"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Пример 3: Форма регистрации студента с динамическими элементами -->
+<section class="section" id="section3">
+  <div class="section__btm">
+    <h2>Динамическая форма регистрации студента</h2>
+    <div class="form-container">
+      <button id="createFormBtn" class="submit-btn">Сгенерировать форму регистрации</button>
+      <div id="dynamicFormContainer"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Пример 4: Форма с днями практики и заданиями -->
+<section class="section" id="section4">
+  <div class="section__btm">
+    <h2>Дни практики и выполненные задания</h2>
+    <div class="form-container">
+      <div class="practice-days">
+        <!-- Дни практики будут добавлены с помощью JavaScript -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Подключаем скрипт как модуль -->
+<script type="module" src="script.js"></script>
+</body>
+</html>

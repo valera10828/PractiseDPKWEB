@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Природа - Левый фрейм</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f1f8e9;
+      color: #333;
+    }
+    h2 {
+      color: #33691e;
+      border-bottom: 2px solid #33691e;
+      padding-bottom: 10px;
+    }
+    .nature-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .nature-list li {
+      margin-bottom: 15px;
+      padding: 10px;
+      background-color: #dcedc8;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .nature-list li:hover {
+      background-color: #c5e1a5;
+    }
+    .image-container {
+      margin-top: 20px;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Лесные экосистемы</h2>
+  <ul class="nature-list">
+    <li onclick="showImage('https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80', 'Хвойный лес')">Хвойные леса</li>
+    <li onclick="showImage('https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80', 'Лиственный лес')">Лиственные леса</li>
+    <li onclick="showImage('https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80', 'Тропический лес')">Тропические леса</li>
+  </ul>
+  
+  <div class="image-container" id="imageContainer"></div>
+  
+  <script>
+    function showImage(src, alt) {
+      document.getElementById('imageContainer').innerHTML = `<h3>${alt}</h3><img src="${src}" alt="${alt}">`;
+    }
+  </script>
+</body>
+</html>

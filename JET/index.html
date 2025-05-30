@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Эко-Студия | Современный Дизайн</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  </head>
+  <body>
+    <div class="loader">
+      <div class="loader-circle"></div>
+      <div class="loader-text">ЭКО-СТУДИЯ</div>
+    </div>
+
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <div class="logo">ЭКО-СТУДИЯ</div>
+          <ul class="nav-links">
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#projects">Проекты</a></li>
+            <li><a href="#contact">Контакты</a></li>
+          </ul>
+          <div class="burger-menu">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section id="home" class="hero">
+      <div class="parallax-bg"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="reveal-text">
+            Природа <span class="highlight">вдохновляет</span> нас
+          </h1>
+          <p class="reveal-text delay-1">
+            Создаем гармоничные пространства, сочетая современные технологии и
+            природные элементы
+          </p>
+          <a href="#about" class="btn btn-primary reveal-text delay-2"
+            >Узнать больше</a
+          >
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span class="scroll-text">Прокрутите вниз</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="reveal-text">О нас</h2>
+          <div class="separator"></div>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <h3 class="reveal-text">Наша философия</h3>
+            <p class="reveal-text delay-1">
+              Мы верим, что лучший дизайн находит вдохновение в природе. Наша
+              студия специализируется на создании пространств, которые не только
+              визуально привлекательны, но и экологически устойчивы.
+            </p>
+            <p class="reveal-text delay-2">
+              С 2015 года мы реализовали более 200 проектов, сочетая
+              инновационные технологии с природными материалами и формами.
+            </p>
+            <div class="stats-container">
+              <div class="stat-item reveal-text delay-3">
+                <span class="counter" data-target="200">0</span>
+                <span class="stat-label">Проектов</span>
+              </div>
+              <div class="stat-item reveal-text delay-4">
+                <span class="counter" data-target="8">0</span>
+                <span class="stat-label">Лет опыта</span>
+              </div>
+              <div class="stat-item reveal-text delay-5">
+                <span class="counter" data-target="15">0</span>
+                <span class="stat-label">Специалистов</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-image reveal-image">
+            <img
+              src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
+              alt="Команда за работой"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="reveal-text">Наши услуги</h2>
+          <div class="separator"></div>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal-card">
+            <div class="service-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+            </div>
+            <h3>Дизайн интерьера</h3>
+            <p>
+              Создаем уникальные интерьеры, вдохновленные природой, с
+              использованием экологичных материалов.
+            </p>
+          </div>
+          <div class="service-card reveal-card delay-1">
+            <div class="service-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="16"></line>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+              </svg>
+            </div>
+            <h3>Ландшафтный дизайн</h3>
+            <p>
+              Проектируем гармоничные сады и экстерьеры, создавая естественные и
+              устойчивые экосистемы.
+            </p>
+          </div>
+          <div class="service-card reveal-card delay-2">
+            <div class="service-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <h3>Архитектурное проектирование</h3>
+            <p>
+              Разрабатываем энергоэффективные здания, интегрированные с
+              окружающей средой.
+            </p>
+          </div>
+          <div class="service-card reveal-card delay-3">
+            <div class="service-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"
+                ></path>
+                <line x1="16" y1="8" x2="2" y2="22"></line>
+                <line x1="17.5" y1="15" x2="9" y2="15"></line>
+              </svg>
+            </div>
+            <h3>Декорирование</h3>
+            <p>
+              Подбираем мебель и аксессуары, создавая целостные и гармоничные
+              интерьеры.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="reveal-text">Наши проекты</h2>
+          <div class="separator"></div>
+        </div>
+        <div class="projects-filter">
+          <button class="filter-btn active" data-filter="all">Все</button>
+          <button class="filter-btn" data-filter="interior">Интерьеры</button>
+          <button class="filter-btn" data-filter="landscape">Ландшафт</button>
+          <button class="filter-btn" data-filter="architecture">
+            Архитектура
+          </button>
+        </div>
+        <div class="projects-grid">
+          <div class="project-item interior reveal-card">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                alt="Интерьер гостиной"
+              />
+            </div>
+            <div class="project-overlay">
+              <h3>Эко-минимализм</h3>
+              <p>Интерьер гостиной</p>
+              <a href="#" class="project-link">Подробнее</a>
+            </div>
+          </div>
+          <div class="project-item landscape reveal-card delay-1">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                alt="Ландшафтный дизайн"
+              />
+            </div>
+            <div class="project-overlay">
+              <h3>Зеленый оазис</h3>
+              <p>Ландшафтный дизайн</p>
+              <a href="#" class="project-link">Подробнее</a>
+            </div>
+          </div>
+          <div class="project-item architecture reveal-card delay-2">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                alt="Современный дом"
+              />
+            </div>
+            <div class="project-overlay">
+              <h3>Гармония с природой</h3>
+              <p>Архитектурный проект</p>
+              <a href="#" class="project-link">Подробнее</a>
+            </div>
+          </div>
+          <div class="project-item interior reveal-card delay-3">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                alt="Интерьер спальни"
+              />
+            </div>
+            <div class="project-overlay">
+              <h3>Спокойствие и уют</h3>
+              <p>Интерьер спальни</p>
+              <a href="#" class="project-link">Подробнее</a>
+            </div>
+          </div>
+          <div class="project-item landscape reveal-card delay-4">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1557429287-b2e26467fc2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+                alt="Городской сад"
+              />
+            </div>
+            <div class="project-overlay">
+              <h3>Городской сад</h3>
+              <p>Ландшафтный дизайн</p>
+              <a href="#" class="project-link">Подробнее</a>
+            </div>
+          </div>
+          <div class="project-item architecture reveal-card delay-5">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                alt="Экодом"
+              />
+            </div>
+            <div class="project-overlay">
+              <h3>Экодом</h3>
+              <p>Архитектурный проект</p>
+              <a href="#" class="project-link">Подробнее</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="parallax-bg testimonials-bg"></div>
+      <div class="container">
+        <div class="section-header light">
+          <h2 class="reveal-text">Отзывы клиентов</h2>
+          <div class="separator light"></div>
+        </div>
+        <div class="testimonials-slider">
+          <div class="testimonial-item active">
+            <div class="testimonial-content">
+              <div class="quote-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M10 11h-4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1z"
+                  ></path>
+                  <path
+                    d="M18 11h-4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1z"
+                  ></path>
+                  <path d="M10 19.4v-8.4"></path>
+                  <path d="M18 19.4v-8.4"></path>
+                </svg>
+              </div>
+              <p>
+                Команда Эко-Студии превзошла все наши ожидания. Они создали для
+                нас дом, который идеально сочетает современный дизайн и
+                экологичность. Мы в восторге от результата!
+              </p>
+              <div class="testimonial-author">
+                <h4>Анна Петрова</h4>
+                <span>Владелец загородного дома</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-item">
+            <div class="testimonial-content">
+              <div class="quote-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M10 11h-4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1z"
+                  ></path>
+                  <path
+                    d="M18 11h-4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1z"
+                  ></path>
+                  <path d="M10 19.4v-8.4"></path>
+                  <path d="M18 19.4v-8.4"></path>
+                </svg>
+              </div>
+              <p>
+                Работать с Эко-Студией было настоящим удовольствием.
+                Профессиональный подход, внимание к деталям и способность
+                воплотить наши идеи в жизнь – всё это делает их настоящими
+                мастерами своего дела.
+              </p>
+              <div class="testimonial-author">
+                <h4>Сергей Иванов</h4>
+                <span>Директор компании</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-item">
+            <div class="testimonial-content">
+              <div class="quote-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M10 11h-4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1z"
+                  ></path>
+                  <path
+                    d="M18 11h-4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1z"
+                  ></path>
+                  <path d="M10 19.4v-8.4"></path>
+                  <path d="M18 19.4v-8.4"></path>
+                </svg>
+              </div>
+              <p>
+                Благодаря Эко-Студии наш сад превратился в настоящий райский
+                уголок. Их подход к созданию устойчивых экосистем позволил нам
+                наслаждаться красотой природы круглый год.
+              </p>
+              <div class="testimonial-author">
+                <h4>Елена Смирнова</h4>
+                <span>Частный клиент</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonials-nav">
+          <button class="prev-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+          <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <button class="next-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="reveal-text">Связаться с нами</h2>
+          <div class="separator"></div>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info reveal-text">
+            <h3>Контактная информация</h3>
+            <div class="info-item">
+              <div class="info-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <span>info@eco-studio.ru</span>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path>
+                </svg>
+              </div>
+              <span>+7 (999) 123-45-67</span>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                  ></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <span>г. Москва, ул. Зеленая, д. 123</span>
+            </div>
+            <div class="social-links">
+              <a href="#" class="social-link">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  ></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form id="contactForm" class="reveal-form">
+              <div class="form-group">
+                <label for="name">Ваше имя</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Электронная почта</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Телефон</label>
+                <input type="tel" id="phone" name="phone" />
+              </div>
+              <div class="form-group">
+                <label for="message">Сообщение</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <div class="logo">ЭКО-СТУДИЯ</div>
+            <p>Создаем гармоничные пространства с заботой о природе</p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-col">
+              <h4>Навигация</h4>
+              <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#projects">Проекты</a></li>
+                <li><a href="#contact">Контакты</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Услуги</h4>
+              <ul>
+                <li><a href="#">Дизайн интерьера</a></li>
+                <li><a href="#">Ландшафтный дизайн</a></li>
+                <li><a href="#">Архитектура</a></li>
+                <li><a href="#">Декорирование</a></li>
+                <li><a href="#">Консультации</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Правовая информация</h4>
+              <ul>
+                <li><a href="#">Политика конфиденциальности</a></li>
+                <li><a href="#">Условия использования</a></li>
+                <li><a href="#">Карта сайта</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Эко-Студия. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

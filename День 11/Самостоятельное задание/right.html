@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Природа - Правый фрейм</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #e3f2fd;
+      color: #333;
+    }
+    h2 {
+      color: #0d47a1;
+      border-bottom: 2px solid #0d47a1;
+      padding-bottom: 10px;
+    }
+    .water-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .water-type {
+      display: inline-block;
+      margin: 10px;
+      background-color: #bbdefb;
+      padding: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    .water-type:hover {
+      background-color: #90caf9;
+      transform: scale(1.05);
+    }
+    .description {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Водные пространства</h2>
+  
+  <div class="water-container">
+    <div class="water-type" onclick="showWaterInfo('ocean')">Океаны</div>
+    <div class="water-type" onclick="showWaterInfo('sea')">Моря</div>
+    <div class="water-type" onclick="showWaterInfo('river')">Реки</div>
+    <div class="water-type" onclick="showWaterInfo('lake')">Озера</div>
+  </div>
+  
+  <div id="waterInfo" class="description"></div>
+  
+  <script>
+    function showWaterInfo(type) {
+      let info = '';
+      let image = '';
+      
+      switch(type) {
+        case 'ocean':
+          image = 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80';
+          info = 'Океаны покрывают более 70% поверхности Земли и содержат около 97% всей воды на планете.';
+          break;
+        case 'sea':
+          image = 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80';
+          info = 'Моря - это части океанов, частично окруженные сушей. Они обычно меньше и менее глубокие, чем океаны.';
+          break;
+        case 'river':
+          image = 'https://images.unsplash.com/photo-1506355683710-bd071c0a5828?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80';
+          info = 'Реки - естественные водные потоки, текущие в выработанном ими углублении.';
+          break;
+        case 'lake':
+          image = 'https://th.bing.com/th/id/R.b965783490105b5d5a3d4c0c39ad2a34?rik=TmlFUOxbG9QRPg&pid=ImgRaw&r=0';
+          info = 'Озера - это естественные водоемы, заполненные в пределах озерной чаши водой и не имеющие непосредственного соединения с морем.';
+          break;
+      }
+      
+      document.getElementById('waterInfo').innerHTML = `
+        <h3>${type.charAt(0).toUpperCase() + type.slice(1)}</h3>
+        <img src="${image}" alt="${type}">
+        <p>${info}</p>
+      `;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css"
+  />
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          user-select: none;
+      }
+
+      h2 {
+          font-size: 3rem;
+      }
+
+      section:nth-of-type(1) {
+          background-color: #7fb5b5;
+      }
+
+      section:nth-of-type(2) {
+          background-color: #efa94a;
+      }
+
+      section:nth-of-type(3) {
+          background-color: #ff8c69;
+      }
+
+      section:nth-of-type(4) {
+          background-color: #ffb28b;
+      }
+
+      section:nth-of-type(5) {
+          background-color: #e6e6fa;
+      }
+
+      button {
+          border: none;
+          outline: none;
+          padding: 20px 40px;
+          margin-bottom: 10px;
+          font-size: 2rem;
+          border-radius: 10px;
+          background-color: #cccaca;
+      }
+
+      button:hover {
+          cursor: pointer;
+          background: #afd5d5;
+      }
+
+      .section__btm {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+          justify-content: center;
+          background-color: #fff;
+          border-radius: 10px;
+          padding: 20px;
+          max-width: 1200px;
+          margin-inline: auto;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+  </style>
+</head>
+<body>
+<div class="fullpage-wrapper" id="fullpage">
+  <script>
+    function factorial(n) {
+      if (n <= 1) {
+        return 1;
+      }
+      return n * factorial(n - 1);
+    }
+      const result = factorial(5);
+  </script>
+  <section class="section">
+    <div class="section__btm">
+      <h2>Задание 1</h2>
+      <button onclick="alert(`Факториал числа 5 равен ${result}`);">Click</button>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section__btm">
+      <h2>Задание 2</h2>
+      <a href="page.html"><button>Click</button></a>
+
+    </div>
+  </section>
+  <script>
+    const mulNumber = () => {
+      const firstNum = prompt('Введите первое число')
+      const secondNum = prompt('Введите второе число')
+      const result = firstNum * secondNum;
+      return `Произведение чисел ${firstNum} и ${secondNum} = ${result}`;
+    }
+  </script>
+  <section class="section">
+    <div class="section__btm">
+      <h2>Задание 3</h2>
+      <button onclick="alert(mulNumber())">Click</button>
+    </div>
+  </section>
+  <script>
+    const amountCup = () => {
+      const userCount = +prompt('Введите кол - во чашек')
+      let giftCup = Math.floor(userCount / 4)
+      const result = userCount + giftCup
+      return `Вы купили ${userCount} чашек, ${giftCup} вам в подарок в честь акции, всего = ${result}`
+    }
+  </script>
+  <section class="section">
+    <div class="section__btm">
+      <h2>Задание 4</h2>
+      <button onclick="alert(amountCup())">Click</button>
+    </div>
+  </section>
+  <script>
+    const words = s => s.toLowerCase()
+      .split("")
+      .filter(c => "аоиеёэыуюя".includes(c))
+      .length;
+    const printResult = () => {
+      const userWord = prompt('Введи строку для подсчета')
+      const result = words(userWord)
+      return `В строке ${userWord} -- ${result} гласные`
+    }
+  </script>
+  <section class="section">
+    <div class="section__btm">
+      <h2>Задание 5</h2>
+      <button onclick="alert(printResult())">Click</button>
+    </div>
+  </section>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+<script>
+  new fullpage("#fullpage", {
+    autoScrolling: true,
+    scrollHorizontally: false,
+    navigation: true,
+    navigationPosition: "right",
+    css3: true,
+  });
+</script>
+</body>
+</html>

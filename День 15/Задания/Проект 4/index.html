@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Простой интернет-магазин</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f5f5f5;
+        color: #333;
+      }
+
+      header {
+        background-color: #4caf50;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .product {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .product:hover {
+        transform: translateY(-5px);
+      }
+
+      .product-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .product-info {
+        padding: 1rem;
+      }
+
+      .product-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .product-price {
+        font-weight: bold;
+        color: #4caf50;
+        margin-bottom: 1rem;
+      }
+
+      .add-to-cart {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s ease;
+      }
+
+      .add-to-cart:hover {
+        background-color: #45a049;
+      }
+
+      .cart {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        background-color: white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        z-index: 100;
+      }
+
+      .cart-count {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #ff5722;
+        color: white;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.8rem;
+      }
+
+      .cart-icon {
+        font-size: 1.5rem;
+        color: #4caf50;
+      }
+
+      .cart-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 200;
+      }
+
+      .cart-content {
+        background-color: white;
+        border-radius: 8px;
+        padding: 2rem;
+        width: 90%;
+        max-width: 600px;
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+
+      .cart-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .close-cart {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #333;
+      }
+
+      .cart-items {
+        margin-bottom: 1.5rem;
+      }
+
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .cart-item-info {
+        display: flex;
+        align-items: center;
+      }
+
+      .cart-item-image {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-right: 1rem;
+      }
+
+      .remove-item {
+        background: none;
+        border: none;
+        color: #ff5722;
+        cursor: pointer;
+      }
+
+      .cart-total {
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-align: right;
+        margin-bottom: 1.5rem;
+      }
+
+      .checkout {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+      }
+
+      .checkout:hover {
+        background-color: #45a049;
+      }
+
+      .empty-cart-message {
+        text-align: center;
+        color: #888;
+      }
+
+      @media (max-width: 768px) {
+        .products {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Простой интернет-магазин</h1>
+    </header>
+
+    <div class="container">
+      <div class="products" id="products"></div>
+    </div>
+
+    <div class="cart" id="cart-button">
+      <div class="cart-icon">🛒</div>
+      <div class="cart-count" id="cart-count">0</div>
+    </div>
+
+    <div class="cart-modal" id="cart-modal">
+      <div class="cart-content">
+        <div class="cart-header">
+          <h2>Корзина</h2>
+          <button class="close-cart" id="close-cart">×</button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-total" id="cart-total">Итого: 0 ₽</div>
+        <button class="checkout" id="checkout">Оформить заказ</button>
+      </div>
+    </div>
+
+    <script>
+      const products = [
+        {
+          id: 1,
+          title: "Смартфон XYZ",
+          price: 24999,
+          image:
+            "https://avatars.mds.yandex.net/i?id=9e816eecf15d4821428c0696393690107562a4fe-5251742-images-thumbs&n=13",
+        },
+        {
+          id: 2,
+          title: "Ноутбук ABC",
+          price: 59999,
+          image: "https://avatars.mds.yandex.net/i?id=c1b88660c603bb6b87632fcff7b1c59a965aad99-4551003-images-thumbs&n=13",
+        },
+        {
+          id: 3,
+          title: "Наушники Pro",
+          price: 7999,
+          image: "https://avatars.mds.yandex.net/i?id=1e2239e0b732fea50ee1c1a30fc87e07_l-5242614-images-thumbs&n=13",
+        },
+        {
+          id: 4,
+          title: "Умные часы Smart",
+          price: 12999,
+          image: "https://avatars.mds.yandex.net/get-mpic/4553373/img_id2921052365954384617.jpeg/900x1200",
+        },
+        {
+          id: 5,
+          title: "Планшет Tab",
+          price: 19999,
+          image: "https://avatars.mds.yandex.net/i?id=585244d36f5c02d373514c03e483397c_l-5361397-images-thumbs&n=13",
+        },
+        {
+          id: 6,
+          title: "Фотоаппарат Zoom",
+          price: 34999,
+          image: "https://avatars.mds.yandex.net/i?id=4333e9d37f6c39082887a9c8bb293e65_l-12322214-images-thumbs&n=13",
+        },
+      ];
+
+      let cart = [];
+      const cartModal = document.getElementById("cart-modal");
+      const cartCount = document.getElementById("cart-count");
+      const cartItems = document.getElementById("cart-items");
+      const cartTotal = document.getElementById("cart-total");
+
+      function formatPrice(price) {
+        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+      }
+
+      function displayProducts() {
+        const html = products
+          .map(
+            (product) => `
+          <div class="product">
+            <img src="${product.image}" alt="${
+              product.title
+            }" class="product-image">
+            <div class="product-info">
+              <h3 class="product-title">${product.title}</h3>
+              <p class="product-price">${formatPrice(product.price)} ₽</p>
+              <button class="add-to-cart" data-id="${
+                product.id
+              }">Добавить в корзину</button>
+            </div>
+          </div>
+        `
+          )
+          .join("");
+
+        document.getElementById("products").innerHTML = html;
+      }
+
+      function updateCart() {
+        const totalItems = cart.reduce(
+          (total, item) => total + item.quantity,
+          0
+        );
+        cartCount.textContent = totalItems;
+
+        if (cart.length === 0) {
+          cartItems.innerHTML =
+            '<p class="empty-cart-message">Ваша корзина пуста</p>';
+          cartTotal.textContent = "Итого: 0 ₽";
+          return;
+        }
+
+        let total = 0;
+        const itemsHtml = cart
+          .map((item) => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            return `
+            <div class="cart-item">
+              <div class="cart-item-info">
+                <img src="${item.image}" alt="${
+              item.title
+            }" class="cart-item-image">
+                <div>
+                  <h4>${item.title}</h4>
+                  <p>${formatPrice(item.price)} ₽ × ${item.quantity}</p>
+                </div>
+              </div>
+              <button class="remove-item" data-id="${item.id}">Удалить</button>
+            </div>
+          `;
+          })
+          .join("");
+
+        cartItems.innerHTML = itemsHtml;
+        cartTotal.textContent = `Итого: ${formatPrice(total)} ₽`;
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        displayProducts();
+
+        document.addEventListener("click", (e) => {
+          if (e.target.classList.contains("add-to-cart")) {
+            const id = parseInt(e.target.dataset.id);
+            const product = products.find((p) => p.id === id);
+            const existingItem = cart.find((item) => item.id === id);
+
+            if (existingItem) {
+              existingItem.quantity++;
+            } else {
+              cart.push({ ...product, quantity: 1 });
+            }
+
+            e.target.textContent = "Добавлено!";
+            e.target.style.backgroundColor = "#45a049";
+            setTimeout(() => {
+              e.target.textContent = "Добавить в корзину";
+              e.target.style.backgroundColor = "#4CAF50";
+            }, 1000);
+
+            updateCart();
+          }
+
+          if (e.target.classList.contains("remove-item")) {
+            const id = parseInt(e.target.dataset.id);
+            cart = cart.filter((item) => item.id !== id);
+            updateCart();
+          }
+
+          if (e.target === cartModal) {
+            cartModal.style.display = "none";
+          }
+        });
+
+        document.getElementById("cart-button").onclick = () => {
+          cartModal.style.display = "flex";
+          updateCart();
+        };
+
+        document.getElementById("close-cart").onclick = () => {
+          cartModal.style.display = "none";
+        };
+
+        document.getElementById("checkout").onclick = () => {
+          if (cart.length === 0) {
+            alert("Ваша корзина пуста");
+            return;
+          }
+
+          const total = cart.reduce(
+            (sum, item) => sum + item.price * item.quantity,
+            0
+          );
+          alert(
+            `Заказ оформлен на сумму ${formatPrice(
+              total
+            )} ₽. Спасибо за покупку!`
+          );
+
+          cart = [];
+          updateCart();
+          cartModal.style.display = "none";
+        };
+      });
+    </script>
+  </body>
+</html>

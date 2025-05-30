@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        user-select: none;
+      }
+
+      h2 {
+        font-size: 3rem;
+      }
+
+      section:nth-of-type(1) {
+        background-color: #7fb5b5;
+      }
+
+      section:nth-of-type(2) {
+        background-color: #efa94a;
+      }
+
+      section:nth-of-type(3) {
+        background-color: #ff8c69;
+      }
+
+      section:nth-of-type(4) {
+        background-color: #ffb28b;
+      }
+
+      section:nth-of-type(5) {
+        background-color: #e6e6fa;
+      }
+
+      section:nth-of-type(6) {
+        background-color: #77dd77;
+      }
+
+      section:nth-of-type(7) {
+        background-color: #e4717a;
+      }
+
+      section:nth-of-type(8) {
+        background-color: #b39f7a;
+      }
+
+      section:nth-of-type(9) {
+        background-color: #3eb489;
+      }
+
+      section:nth-of-type(10) {
+        background-color: #ccccff;
+      }
+
+      button {
+        border: none;
+        outline: none;
+        padding: 20px 40px;
+        margin-bottom: 10px;
+        font-size: 2rem;
+        border-radius: 10px;
+        background-color: #cccaca;
+      }
+
+      button:hover {
+        cursor: pointer;
+        background: #afd5d5;
+      }
+
+      .section__btm {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 1200px;
+        margin-inline: auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="fullpage">
+      <section class="section">
+        <div class="section__btm">
+          <h2>Свойства объекта Navigator</h2>
+          <div id="navigator-info"></div>
+          <script>
+            const an = navigator.appName;
+            const av = navigator.appVersion;
+            const acn = navigator.appCodeName;
+            const ua = navigator.userAgent;
+            const cook = navigator.cookieEnabled;
+            const lang = navigator.language || "Не определен";
+            const langs = navigator.languages
+              ? navigator.languages.join(", ")
+              : "Не определен";
+            const platf = navigator.platform;
+            const online = navigator.onLine;
+            const doNotTrack = navigator.doNotTrack;
+            const maxTouchPoints = navigator.maxTouchPoints;
+
+            document.getElementById("navigator-info").innerHTML =
+              "<b>Ваш браузер</b> " +
+              an +
+              " <b>версии</b> " +
+              av +
+              "<br><b>Его кодовое имя</b> " +
+              acn +
+              " <b>и заголовок протокола</b> " +
+              ua +
+              "<br><b>Текущее значение cookies</b> " +
+              cook +
+              "<br><b>Текущий язык браузера</b> " +
+              lang +
+              "<br><b>Поддерживаемые языки</b> " +
+              langs +
+              "<br><b>Платформа ОС</b> " +
+              platf +
+              "<br><b>Подключение к сети</b> " +
+              online +
+              "<br><b>Настройка Do Not Track</b> " +
+              doNotTrack +
+              "<br><b>Максимальное количество точек касания</b> " +
+              maxTouchPoints;
+          </script>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section__btm">
+          <h2>Свойства объекта Screen</h2>
+          <div id="screen-info"></div>
+          <script>
+            document.getElementById("screen-info").innerHTML =
+              "width: " +
+              window.screen.width +
+              "<br>" +
+              "availWidth: " +
+              window.screen.availWidth +
+              "<br>" +
+              "height: " +
+              window.screen.availHeight +
+              "<br>" +
+              "availHeight: " +
+              window.screen.availHeight +
+              "<br>" +
+              "colorDepth: " +
+              window.screen.colorDepth +
+              "<br>" +
+              "updateInterval: " +
+              Math.floor(Math.random() * 1000 + 1000);
+          </script>
+        </div>
+      </section>
+      <script>
+        const checkBrowser = () => {
+          if (navigator.appName === "Windows Internet Explorer") {
+            alert("У вас отличный браузер");
+          } else {
+            alert("А чем вам не нравится Microsoft Internet EXPLORER?");
+          }
+        };
+      </script>
+      <section class="section">
+        <div class="section__btm">
+          <h2>Задание 1</h2>
+          <button onclick="checkBrowser()">Проверить браузер</button>
+        </div>
+      </section>
+      <script>
+        class Car {
+          constructor(name, model, color) {
+            this.name = name;
+            this.model = model;
+            this.color = color;
+            this.owner = "Иванов";
+          }
+          setOwner(name) {
+            this.owner = name;
+          }
+          describe() {
+            alert(`Название: ${this.name}, 
+Модель: ${this.model},
+Цвет: ${this.color},
+Владелец: ${this.owner}`);
+          }
+        }
+        const myCar = new Car("Toyota", "Corolla", "Синий");
+
+      </script>
+      <section class="section">
+        <div class="section__btm">
+          <h2>Задание 2</h2>
+          <button onclick="myCar.describe()">Вывести инфу класса</button>
+          <button onclick="myCar.setOwner(prompt('Введите новое имя владельца'))">Поменять владельца</button>
+        </div>
+      </section>
+      <script>
+        class Tour {
+          constructor(people, days, rate) {
+            this.people = people;
+            this.days = days;
+            this.rate = rate;
+          }
+          getCost() {
+            return this.people * this.rate * this.days;
+          }
+
+          describe() {
+            alert(`Людей: ${this.people},
+Дней: ${this.days},
+Тариф: ${this.rate},
+Стоимость: ${this.getCost()}`);
+          }
+        }
+        const myTour = new Tour(4, 7, 100);
+      </script>
+      <section class="section">
+        <div class="section__btm">
+          <h2>Задание 3</h2>
+          <button onclick="myTour.describe()">Вывести инфу класса</button>
+        </div>
+      </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+    <script>
+      new fullpage("#fullpage", {
+        autoScrolling: true,
+        scrollHorizontally: false,
+        navigation: true,
+        navigationPosition: "right",
+        css3: true,
+      });
+    </script>
+  </body>
+</html>

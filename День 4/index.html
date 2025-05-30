@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css">
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          user-select: none;
+      }
+
+      h2 {
+          font-size: 3rem;
+      }
+
+      section:nth-of-type(1) {
+          background-color: #7fb5b5;
+      }
+
+      section:nth-of-type(2) {
+          background-color: #efa94a;
+      }
+
+      section:nth-of-type(3) {
+          background-color: #ff8c69;
+      }
+
+      section:nth-of-type(4) {
+          background-color: #ffb28b;
+      }
+
+      section:nth-of-type(5) {
+          background-color: #e6e6fa;
+      }
+
+      section:nth-of-type(6) {
+          background-color: #77DD77;
+      }
+
+      section:nth-of-type(7) {
+          background-color: #E4717A;
+      }
+
+      section:nth-of-type(8) {
+          background-color: #B39F7A;
+      }
+
+      section:nth-of-type(9) {
+          background-color: #3EB489;
+      }
+
+      section:nth-of-type(10) {
+          background-color: #CCCCFF;
+      }
+
+      button {
+          border: none;
+          outline: none;
+          padding: 20px 40px;
+          margin-bottom: 10px;
+          font-size: 2rem;
+          border-radius: 10px;
+          background-color: #cccaca;
+      }
+
+      button:hover {
+          cursor: pointer;
+          background: #afd5d5;
+      }
+
+      .section__btm {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+          justify-content: center;
+          background-color: #fff;
+          border-radius: 10px;
+          padding: 20px;
+          max-width: 1200px;
+          margin-inline: auto;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+  </style>
+</head>
+<body>
+<div id="fullpage">
+  <script>
+    const weekDays = ['Понедельник', 'Вторник', 'Среда',
+      'Четверг', 'Пятница', 'Суббота', 'Воскресенье']
+    const printWeekDays = () => alert(weekDays.join(' , '))
+  </script>
+  <section class="section " id="section0">
+    <div class="section__btm">
+      <h2>Задание 1</h2>
+      <button onclick="printWeekDays()">Click</button>
+    </div>
+  </section>
+  <script>
+    const getDifSubtraction = () => {
+      const firstNumber = +prompt('Введите первое число: ')
+      const secondNumber = +prompt('Введите второе число: ')
+
+      const result = firstNumber - secondNumber
+      alert(`${firstNumber} - ${secondNumber} = ${result}  Противоположное число равно = ${result * -1}`)
+    }
+  </script>
+  <section class="section " id="section1">
+    <div class="section__btm">
+      <h2>Задание 2</h2>
+      <button onclick="getDifSubtraction()">Click</button>
+    </div>
+  </section>
+  <script>
+    const getPrice = () => {
+      const fullPrice = +prompt('Введите полную стоимость: ')
+      const taxRate = +prompt('Введите ставку налога: ')
+      const result = fullPrice - fullPrice * taxRate
+      alert(`При ставке налога = ${taxRate} и Полной стоимости = ${fullPrice}
+      Результат = ${result}`)
+    }
+  </script>
+  <section class="section " id="section2">
+    <div class="section__btm">
+      <h2>Задание 3</h2>
+      <button onclick="getPrice()">Click</button>
+    </div>
+  </section>
+  <script>
+    const str = 'Программист'
+    const getLetters = (string) => {
+      const result = []
+      for (let i = 0; i < string.length; i++) {
+        const position = i + 1
+        result.push(`${position}: ${string[i]}`)
+      }
+      alert(result.join('\n'))
+    }
+  </script>
+  <section class="section " id="section3">
+    <div class="section__btm">
+      <h2>Задание 4</h2>
+      <button onclick="getLetters(str)">Click</button>
+    </div>
+  </section>
+  <script>
+    const getExpressions = () => {
+      let userNumber = +prompt('Введите число: ')
+      userNumber +=  12
+      userNumber -=  14
+      userNumber *=  5
+      userNumber /=  7
+      userNumber +=  1
+      userNumber -=  1
+      alert(userNumber.toFixed(2));
+    }
+  </script>
+  <section class="section " id="section4">
+    <div class="section__btm">
+      <h2>Задание 5</h2>
+      <button onclick="getExpressions()">Click</button>
+    </div>
+  </section>
+  <script>
+    const getUserExpressions = () => {
+      const firstNumber = +prompt('Введите первое число: ')
+      const secondNumber = +prompt('Введите второе число: ')
+
+      const sum = firstNumber + secondNumber
+      const subtraction = firstNumber - secondNumber
+      const multiplication = firstNumber * secondNumber
+      const division = firstNumber / secondNumber
+      alert(`Числа a = ${firstNumber}, b = ${secondNumber}`
+        + `\n Сумма = ${sum}`
+        + `\n Разность = ${subtraction}`
+        + `\n Произведение = ${multiplication}`
+        + `\n Частное = ${division}`
+      )
+    }
+  </script>
+  <section class="section " id="section5">
+    <div class="section__btm">
+      <h2>Задание 6</h2>
+      <button onclick="getUserExpressions()">Click</button>
+    </div>
+  </section>
+  <script>
+    const getIndexLetter = () => {
+      const str = 'abcde'
+      alert(`${str.at(0)} - ${str.at(2)} - ${str.at(-1)}`)
+    }
+  </script>
+  <section class="section " id="section6">
+    <div class="section__btm">
+      <h2>Задание 7</h2>
+      <button onclick="getIndexLetter()">Click</button>
+    </div>
+  </section>
+  <script>
+    const getOperation = () => {
+      let userNumber = +prompt('Введите число: ')
+      userNumber +=  7
+      userNumber -=  18
+      userNumber *=  10
+      userNumber /=  15
+      alert(userNumber.toFixed(2))
+    }
+  </script>
+  <section class="section " id="section7">
+    <div class="section__btm">
+      <h2>Задание 8</h2>
+      <button onclick="getOperation()">Click</button>
+    </div>
+  </section>
+  <script>
+    const isNegative = () => {
+      const userNumber = +prompt('Введите число: ')
+      alert(userNumber < 0 ? 'Верно' : 'Неверно')
+    }
+  </script>
+  <section class="section " id="section8">
+    <div class="section__btm">
+      <h2>Задание 9</h2>
+      <button onclick="isNegative()">Click</button>
+    </div>
+  </section>
+  <script>
+    const isWord = () => {
+      const userWord = prompt('Введите слово: ')
+      alert(userWord === 'test' ? 'Верно' : 'Неверно')
+    }
+  </script>
+  <section class="section " id="section9">
+    <div class="section__btm">
+      <h2>Задание 10</h2>
+      <button onclick="isWord()">Click</button>
+    </div>
+  </section>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+<script>
+  new fullpage("#fullpage", {
+    autoScrolling: true,
+    scrollHorizontally: false,
+    navigation: true,
+    navigationPosition: "right",
+    css3: true,
+  });
+</script>
+</body>
+</html>

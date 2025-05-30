@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Природа - Верхний фрейм</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e8f5e9;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background-color: #2e7d32;
+      color: white;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    .main-image {
+      width: 80%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    p {
+      width: 80%;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Красота природы</h1>
+  </header>
+  <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Природный пейзаж" class="main-image">
+  <p>Природа - удивительный мир, полный красоты и гармонии. Изучайте её разнообразие в наших разделах.</p>
+  <button onclick="parent.leftFrame.location.href='forest.html'">Изучить леса</button>
+  <button onclick="parent.rightFrame.location.href='ocean.html'">Изучить океаны</button>
+</body>
+</html>

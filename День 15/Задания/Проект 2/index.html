@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Сочинение о поездке в Крым</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #0066cc;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .image-container {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      p {
+        text-align: justify;
+        margin-bottom: 15px;
+      }
+
+      .highlight {
+        color: red;
+        cursor: pointer;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      .highlight:hover {
+        color: darkred;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Как я проведу лето: Поездка в Крым</h1>
+
+      <div class="content">
+        <div class="image-container">
+          <img
+            id="vacation-image"
+            src="https://images.unsplash.com/photo-1596397249129-c7a8f8718873?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Крым"
+          />
+        </div>
+
+        <div class="text-content">
+          <p>
+            Этим летом я планирую отправиться в незабываемое путешествие в
+            <span class="highlight" onclick="changeImage(1)">Крым</span>.
+            Полуостров славится своими живописными пейзажами, чистыми
+            <span class="highlight" onclick="changeImage(2)">пляжами</span> и
+            богатой историей.
+          </p>
+
+          <p>
+            Мое путешествие начнется с прибытия в
+            <span class="highlight" onclick="changeImage(3)">Симферополь</span>,
+            откуда я отправлюсь на южный берег Крыма. Первым пунктом моего
+            маршрута станет величественная
+            <span class="highlight" onclick="changeImage(4)">Ялта</span> –
+            жемчужина Крымского побережья.
+          </p>
+
+          <p>
+            В Ялте я планирую посетить знаменитый
+            <span class="highlight" onclick="changeImage(5)"
+              >Ливадийский дворец</span
+            >, бывшую летнюю резиденцию последнего российского императора.
+            Прогуляюсь по набережной, наслаждаясь морским бризом и видами на
+            <span class="highlight" onclick="changeImage(6)">Черное море</span>.
+          </p>
+
+          <p>
+            Следующим пунктом моего путешествия станет
+            <span class="highlight" onclick="changeImage(7)">Алушта</span>, где
+            я проведу несколько дней, наслаждаясь пляжным отдыхом и местной
+            кухней. Обязательно попробую знаменитые крымские
+            <span class="highlight" onclick="changeImage(8)">вина</span> и
+            свежие морепродукты.
+          </p>
+
+          <p>
+            Не могу пропустить и посещение легендарного
+            <span class="highlight" onclick="changeImage(9)"
+              >замка Ласточкино гнездо</span
+            >, который словно парит над морем на отвесной Аврориной скале. Это
+            настоящий символ Крыма, который я видел на многих фотографиях.
+          </p>
+
+          <p>
+            Также в моих планах поездка в древний город
+            <span class="highlight" onclick="changeImage(10)">Севастополь</span
+            >, богатый историческими памятниками. Хочу посетить Херсонес
+            Таврический – древнегреческий город, основанный более двух тысяч лет
+            назад.
+          </p>
+
+          <p>
+            Завершу свое путешествие восхождением на
+            <span class="highlight" onclick="changeImage(11)"
+              >гору Ай-Петри</span
+            >, откуда открывается захватывающий вид на все южное побережье.
+            Надеюсь, мне повезет с погодой, и я смогу сделать потрясающие
+            фотографии.
+          </p>
+
+          <p>
+            Уверен, что поездка в Крым оставит незабываемые впечатления и яркие
+            воспоминания на весь год!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const images = [
+        "https://avatars.mds.yandex.net/i?id=2cd5130513dc5934c10152c549024e8e9db7488a-9044089-images-thumbs&n=13", // Общий вид Крыма
+        "https://avatars.mds.yandex.net/i?id=2cd5130513dc5934c10152c549024e8e9db7488a-9044089-images-thumbs&n=13", // Крым
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Пляжи
+        "https://avatars.mds.yandex.net/i?id=2a6c3a4f82c8c90489b967e865193ba151b038ed-5352919-images-thumbs&n=130", // Симферополь
+        "https://avatars.mds.yandex.net/i?id=4f7f7eb7cb559a7cd8a557c55abda6c1fb15e422-4228606-images-thumbs&n=13", // Ялта
+        "https://avatars.mds.yandex.net/i?id=40a53bbf1d61f12562657a24f13257a9_l-5261679-images-thumbs&n=13", // Ливадийский дворец
+        "https://avatars.mds.yandex.net/i?id=82615a003a99db4f88f5644353b8d6f15ccc1019-5323298-images-thumbs&n=13", // Черное море
+        "https://avatars.mds.yandex.net/i?id=17344f19d3a7de08976448f898b53454_l-5223638-images-thumbs&n=13", // Алушта
+        "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Вина
+        "https://avatars.mds.yandex.net/i?id=91cd4697fc026a6ec6fa94ba3f31b716bbf8c8c1-7761368-images-thumbs&n=13", // Ласточкино гнездо
+        "https://avatars.mds.yandex.net/i?id=c4d606299e72696c2e90e0d7a0cd644aef014644-5023807-images-thumbs&n=13", // Севастополь
+        "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Гора Ай-Петри
+      ];
+
+      function changeImage(index) {
+        const imageElement = document.getElementById("vacation-image");
+        imageElement.src = images[index];
+
+        imageElement.style.opacity = "0";
+        setTimeout(() => {
+          imageElement.style.opacity = "1";
+        }, 100);
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const imageElement = document.getElementById("vacation-image");
+        imageElement.style.transition = "opacity 0.5s ease";
+      });
+    </script>
+  </body>
+</html>
